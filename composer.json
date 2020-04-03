@@ -1,0 +1,36 @@
+{	
+        "name": "messiasdias/md-php-framework-project",
+        "description": "PHP Framework Project - Messias Dias",
+        "type": "project",
+        "version": "1.0",
+        "minimum-stability": "stable",
+        "license": "MIT",
+
+        "authors": [
+                {
+                        "name": "Messias Dias",
+                        "email": "messiasdias.ti@gmail.com"
+                }
+         ],
+
+	"require": {
+                "php": ">=7.2.0",
+                "messiasdias/md-php-framework-lib": "dev-master"
+        },
+        
+        "scripts": {
+                "post-create-project-cmd": [
+                    "App\\Bin\\Installer::PostCreateProject"
+                ]
+        },
+
+
+        "autoload": {
+                "psr-4": {
+                        "App\\": "vendor/messiasdias/md-php-framework-lib/",
+                        "App\\Models\\" : "src/Models/",
+                        "App\\Controllers\\" : "src/Controllers/",
+                        "App\\Database\\" : "src/Database/"
+                }
+        }
+}

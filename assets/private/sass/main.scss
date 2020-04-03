@@ -1,0 +1,116 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+$font: 'Nunito', sans-serif;
+
+
+//colors
+$white: #FFFFFF;
+$white2: rgba(#FFFFFF, .3);
+$black: #000;
+$black2: rgba(#000, .3);
+$corlor1: #9e7700;
+$corlor2: #9e9e00;
+$corlor3: #779e00;
+$corlor4: #009e9e;
+
+//Break-points
+$md: 768px;
+
+//flex
+.flex{
+    display: flex;
+    align-items: center;
+
+    &-row{
+        flex-direction: row;
+    }
+
+    &-col{
+        flex-direction: column;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    @extend .flex, .flex-col;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+    font-family: $font;
+}
+
+
+
+.home {
+    @extend .flex, .flex-col;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    min-height: 100%;
+    
+
+    img{
+        width: 60%;
+        max-width: 140px;
+        margin-bottom: 20px;
+        @media screen and (max-width: #{$md}) {
+            max-width: 100px;
+        }
+    }
+
+    h1{ 
+        color: $black2;
+        font-size: 3vw;
+        @media screen and (max-width: #{$md}) {
+            font-size: 6vw;
+        }
+    }
+
+    p{ 
+        color: $corlor1;
+        font-weight: lighter;
+        font-size: 2vw;
+        @media screen and (max-width: #{$md}) {
+            font-size: 4vw;
+        }
+    }
+
+
+    ul{
+        list-style: none !important;
+
+        li{
+            display: inline-flex;
+            @media screen and (max-width: #{$md}) {
+
+            }
+
+            margin: 10px;
+            padding: 5px;
+            a{
+                text-decoration: none !important;
+                color: $corlor1;
+                font-weight: bolder;
+                font-size: 1.5vw;
+                @media screen and (max-width: #{$md}) {
+                    font-size: 3vw;
+                }
+            }
+
+            &:hover{
+                & > a {
+                    color: $corlor2;
+                }
+                cursor: pointer;
+            }
+        }
+    }
+
+}

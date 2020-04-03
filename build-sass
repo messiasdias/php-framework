@@ -1,0 +1,4 @@
+#!/bin/bash
+sass --watch assets/private/sass/main.scss:assets/public/css/style.css
+
+ 
