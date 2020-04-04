@@ -1,0 +1,11 @@
+
+gem "github-pages", group: :jekyll_plugins
+theme: jekyll-theme-cayman
+title: [MD PHP Framework]
+theme: jekyll-theme-cayman
+description: [Mini Framework para desenvolvimento de App/Api com Back-End PHP e Banco de Dados Mysql. Front-End com PHP Twig Templete engine e/ou Vuejs, com HTML, CSS/Sass.]
+show_downloads: [true]
+google_analytics: [...]
+
+
+
