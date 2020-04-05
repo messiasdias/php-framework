@@ -1,5 +1,5 @@
 
-<img src="./assets/public/img/default/md-logo2.png" width="300" />
+<img src="https://github.com/messiasdias/md-php-framework-project/assets/public/img/default/md-logo2.png" width="120" />
 
 # MD PHP Framework
 Mini Framework para desenvolvimento de App/Api com Back-End PHP e Banco de Dados Mysql. 

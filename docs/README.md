@@ -1,5 +1,6 @@
 <script src="../assets/public/js/jquery.min.js"></script> 
-<img src="../assets/public/img/default/md-logo2.png" width="120" />
+
+<img src="https://github.com/messiasdias/md-php-framework-project/assets/public/img/default/md-logo2.png" width="120" />
 
 ## Get Started
 
