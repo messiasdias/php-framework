@@ -1,8 +1,6 @@
 <script src="../assets/public/js/jquery.min.js"></script> 
 
-<img src="https://github.com/messiasdias/md-php-framework-project/assets/public/img/default/md-logo2.png" width="120" />
-
-## Get Started
+# Get Started
 
 <!-- start Iniciando um Projeto -->
 <details  >
