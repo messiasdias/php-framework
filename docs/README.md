@@ -1,12 +1,5 @@
 <script src="../assets/public/js/jquery.min.js"></script> 
-<img src="../assets/public/img/default/md-logo2.png" width="300" />
-
-# MD PHP Framework
-
-*Mini Framework para desenvolvimento de App/Api com Back-End PHP e Banco de Dados Mysql.
-Front-End com PHP Twig Templete engine e/ou Vuejs, com HTML, CSS/Sass.*
-
-
+<img src="../assets/public/img/default/md-logo2.png" width="120" />
 
 ## Get Started
 
