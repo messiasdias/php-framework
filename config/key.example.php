@@ -1,2 +1,2 @@
 <?php 
-$key="<key>";
+$key="{your_key_here}";

@@ -1,4 +1,5 @@
-![Thumbnail of Cayman](../assets/public/img/default/md-logo2.png)
+<script src="../assets/public/js/jquery.min.js"></script> 
+<img src="../assets/public/img/default/md-logo2.png" width="300" />
 
 # MD PHP Framework
 
@@ -7,101 +8,250 @@ Front-End com PHP Twig Templete engine e/ou Vuejs, com HTML, CSS/Sass.*
 
 
 
-
-
 ## Get Started
 
-### Iniciando um projeto
-* [Composer](https://getcomposer.org/download/) 
-```
-composer create-project -s dev messiasdias/md-php-framework-project
-```
-* [Git](https://github.com/messiasdias/md-php-framework-project)
-```
-git clone https://github.com/messiasdias/md-php-framework-project.git <nome_do_diretorio_opcional>
-```
+<!-- start Iniciando um Projeto -->
+<details  >
+<summary>Iniciando um projeto</summary>
+<md id="start"></md>
+
+<script >
+  //$('#start').load("start.md").wrap('<pre>'); 
+  //$("#start").load("start.md").wrap('<pre>');
+//$( "#start" ).replaceWith( "start.md" ).wrap('<pre>')
+$('#start').load("start.md")
+</script>
+
+
+ 
+</details>
+<!-- end Iniciando um Projeto -->
 
 
 
 
-### Preparando o Servidor
-Primeiramente devemos ativar o ***modulo Rewrite*** nosso Servidor Web, nesse exemplo utilizamos o Apache2 no Ubuntu Server, Debian e derivados.
-
-Para ativar no Linux o comando é:
-```
- sudo a2enmod rewrite
- sudo service apache2 reload
-```
-
-Apartir do diretório do projeto criado acima, Se não existir, crie os seguintes arquivos:
-
-* /public/.htaccess  e/ou 
-* /api/.htaccess (opcional)
-
-com o conteúdo abaixo:
-
-```
-RewriteEngine On
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteRule ^(.*)$ index.php
-Options All -Indexes
-```
+<!-- start /assets -->
+<details>
+  <summary>/assets</summary>
 
 
-Ainda no diretório do projeto , Se não existir, crie os seguintes arquivos:
+<!-- start /assets/private -->
+  <details>
+    <summary>/assets/private</summary>
+    private
+  </details>
+ <!-- end /assets/private --> 
 
-*  /public/index.php  e/ou
-*  /api/index.php (opcional)
 
-```
-<?php
-require_once "../vendor/autoload.php";
-use App\App;
+<!-- start /assets/public -->
+ <details>
+    <summary>/assets/public</summary>
+    public
+  </details>
+<!-- end /assets/public -->  
 
+ 
+</details>
+<!-- end  /assets -->
+
+
+
+
+
+
+<!-- start /config -->
+<details>
+  <summary>/config</summary>
+
+## Configurações
+
+#### /config/app.php 
+> Configurações diretamente realacionadas ao core do App.
+
+
+```php
 /* 
-Start App using the argument 'app' for site/App, 
-or with argument 'api'for API
------------------------------------------------
-Iniciar App usando o argumento 'app' 
-Para site/App ou com o argumento 'api' Para API.
+ ## App Config  ###
+
+ Defining: 
+ $this->config = (object) array(
+     'key' => 'value'
+ )
+
+ Using:
+ $value = $app->key | $this->key (on App Instânce); 
+
+ */
+
+
+$this->config = (object) array(
+    'timezone' => 'America/Recife',
+    'description' => 'MD | PHP Framework - Project',
+    'debug' => false,
+    'debug_msg' => false,
+    'views' => '../assets/views/',
+);
+
+
+$this->maker_config = (object) array(
+    
+    /* Marker Args */
+    'spoon_flag' => '##teste##', // 
+
+
+    
+    /* Marker default Users - optional */ 
+    "users" => array (
+
+        // --> Default Admin
+        "admin"=>  array ( 
+                
+                    "first_name" => "Admin",
+                    "last_name" => "of System ##teste##",
+                    "email" => "admin@teste.ex",
+                    "username" => "@admin",
+                    "pass" => "123456789",
+                    "img"=> "/img/default/avatar-m2.png",
+                    "rol"=> 1,
+                    "status"=> 1
+        ),
+
+
+        // --> Default Manager 
+        "manager"=> array ( 
+                
+                    "first_name" => "Manager",
+                    "last_name" => "##teste##",
+                    "email" => "manager@teste.ex",
+                    "username" => "@manager",
+                    "pass" => "123456789",
+                    "img"=> "/img/default/avatar-m3.png" ,
+                    "rol"=> 2,
+                    "status"=> 1 
+        ),
+    
+        // --> Default User
+        "user" =>  array ( 
+                    "first_name" => "User",
+                    "last_name" => "##teste##",
+                    "email" => "user@teste.ex",
+                    "username" => "@user",
+                    "pass" => "123456789",
+                    "img"=> '/img/default/avatar-m2.jpg',
+                    "rol"=> 3,
+                    "status"=> 1
+                )
+    ),
+    
+        
+    
+    
+
+);
+
+
+```
+
+#### /config/db.php 
+> Configurações referentes ao Banco de dados.
+
+
+```php
+/* 
+Example Object db config
+$this-> [ host| port | database | user| pass ] = 'value';
 */
 
-$app = new App('app'); // 
-$app->run();
-```
-
-O Argumento passado ao instanciar *APP*, deve ser levado em consideração muita importância,é esse argumento o gatilho para carregar os arquivos das rotas para o Site ou API, que por sua vez ficam em diretórios distintos.
-
-
-### Configurando Projeto com Composer ( PHP )
-```
-composer install
+$this->host = '<ip|hostname>';
+$this->port = '3306'; //port mysql default 
+$this->database = '<dbname>';
+$this->user = '<user>';
+$this->pass = '<pass>'; 
 ```
 
 
-### Configurando Projeto com NPM ( JavaScript )
-```
-npm install
+#### /config/key.php 
+> JWT Token HS256 key.
+
+```php 
+$key="{your_key_here}";
 ```
 
-* Iniciando servidor de Desenvolvimento
-```
-npm run dev 
-```
-ou 
+*Uma noma chave será gerada automaticamente se o valor da variável $key for igual a {your_key_here}*
 
-```
-npm run serve
-```
-
-* Construindo versão de Produção
-```
-npm run build
-```
+#### /config/middlewares.php 
+> Onde definimos methodos mediadores, que podem autorizar ou não determinada tarefa no aplicativo
 
 
-## Definindo as Rotas
+
+#### Crindado arquivos de configuração com o Maker
+Acessar url
+/maker/file/config:[middlewares|db|key|app]
+
+ 
+</details>
+<!-- end  /config -->
+
+
+
+<!-- start  /docs -->
+<details>
+<summary>/docs</summary>
+docs
+</details>
+<!-- end  /docs -->
+
+
+
+
+<!-- start  /public|api -->
+<details>
+<summary>/public | /api</summary>
+public | api
+</details>
+<!-- end  /public|api -->
+
+
+
+
+<!-- start  /src -->
+<details>
+  <summary>/src</summary>
+
+
+  <!-- start  /src/Controllers -->
+  <details>
+    <summary>/src/Controllers</summary>
+    /src/Controllers
+  </details>
+  <!-- end  /src/Controllers -->
+
+
+
+  <!-- start  /src/Database -->
+  <details>
+    <summary>/src/Database</summary>
+    /src/Database
+  </details>
+  <!-- end  /src/Database -->
+
+
+
+  <!-- start  /src/Models -->
+  <details>
+    <summary>/src/Models</summary>
+    /src/Models
+  </details>
+  <!-- end  /src/Models -->
+
+
+
+
+  <!-- start  /src/Routers -->
+  <details>
+    <summary>/src/Routers</summary>
+
+## Definindo Rotas
 
 Todos os Arquivos de Rotas encontram-se em */src/Routers/*, as rotas definidas nos arquivos desse diretório serão carregadas quando usamos do argumento *'app'*. Caso queira carregar as rotas para a api, lembre-se que deve indicar isso ao instâciar *App* em /api/index.php com o argumento *'api'*.
 Os Arquivos de rotas para api encontram-se em */src/Routers/api/*
@@ -166,31 +316,32 @@ $app->get('/users/{id}int', function($app,$args){
        
 } , null);
 ``` 
+ 
+
+  </details>
+  <!-- end  /src/Routers -->
+
+
+  <!-- start  /src/Viewfilters -->
+  <details>
+    <summary>/src/Viewfilters</summary>
+    /src/Viewfilters
+  </details>
+  <!-- end  /src/Viewfilters -->
+
+
+
+
+</details>
+<!-- end  /src -->
+
+
+
+
+</details>
+<!-- end  /src -->
 
 
 
 
 
-
-
-
-
-- **Views**
-
-Variaveis Default:
-
-> {{url}} => URL Atual;
-
-> {{user.att}} | false, => Dados do Usuário Logado ou false;
-
-> {{token}} | false => Token gerado acara requisição ou false;
-
-> {{input.name}}' => Valores dos inputs anteriormente enviados via formulário html, se não existe, a váriavél não existirá.
-
-> {{assets}} => '/assets' => Path default root de /img, /css, /js, etc;
-
-> {{log.msg | classe }} | false => Messagens de Aviso para o usuário com as classes: success, error e warning;
-
-> {{session.name}} | false => $_SESSION padrão do php;
-
->	{{cookies.name}}  |false => Cookies Vindos da Classe Request
