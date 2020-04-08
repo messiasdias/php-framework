@@ -9,7 +9,7 @@ use App\Models\User;
 class Users extends Seeder
 {	
 	
-	public function __construct(App $app, array $users){
+	public function __construct(array $users){
 		
 		
 		foreach ($users as $value ) {
