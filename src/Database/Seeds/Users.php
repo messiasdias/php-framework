@@ -1,5 +1,6 @@
 <?php
 namespace App\Database\Seeds;
+//use App\App;
 use App\Database\Seeder;
 use App\Models\User;
 /**
@@ -8,7 +9,7 @@ use App\Models\User;
 class Users extends Seeder
 {	
 	
-	public function __construct(array $users){
+	public function __construct(App $app, array $users){
 		
 		
 		foreach ($users as $value ) {

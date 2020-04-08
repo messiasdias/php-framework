@@ -20,8 +20,12 @@
         
         "scripts": {
                 "post-create-project-cmd": [
-                    "App\\Bin\\Installer::PostCreateProject"
-                ]
+                    "App\\Console\\Controllers\\MakerController::PostCreateProject"
+                ],
+
+                "maker": [
+                        "App\\Console\\Controllers\\MakerController::maker"
+                 ]
         },
 
 

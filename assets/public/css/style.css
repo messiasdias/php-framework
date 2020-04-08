@@ -35,7 +35,8 @@ body {
       .home img {
         max-width: 100px; } }
   .home h1, .home h2 {
-    color: rgba(0, 0, 0, 0.3); }
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center; }
   .home p, .home a {
     text-align: center;
     font-weight: lighter; }
@@ -70,7 +71,10 @@ body {
         .home ul li:hover > a {
           color: #9e9e00; }
 
-.menu li {
+.menu > li {
+  border: solid 2px #9e7700;
+  border-radius: 50px;
+  padding: 5px;
   flex-direction: row !important; }
 
 .log {

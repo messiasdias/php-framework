@@ -69,6 +69,7 @@ body{
 
     h1, h2{ 
         color: $black2;
+        text-align: center;
     }    
 
 
@@ -127,7 +128,10 @@ body{
 
 
 .menu{
-    & > li{
+    & > li {
+        border: solid 2px $color1;
+        border-radius: 50px;
+        padding: 5px;
         flex-direction: row !important;
     }
 }
