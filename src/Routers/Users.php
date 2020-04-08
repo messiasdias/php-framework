@@ -3,7 +3,6 @@ use App\Models\User;
 
 
 //list
-
 $app->router_group(['/users', '/users/list', '/users/{page}int/{ppage}int'], function($app, $args){
 	return $app->controller('users@list', $args);
 } , 'admin');
@@ -53,8 +52,10 @@ $app->get('/users/edit/{attr}str|minlen:4/{id}int|mincount:1', function($app, $a
 
 
 //get profile
-$app->router_group(['/users/profile/{id}int', '/users/{id}int' ], function($app, $args){
-	return $app->view('adminlte/users/profile', ['user_item' =>  User::find('id', $args->id) ]);
+$app->router_group(['/users/{id}int', '/user/{id}int' ], function($app, $args){
+	$user =  User::find('id', $args->id);
+	unset($user->pass);
+	return $app->view('adminlte/users/profile', ['user_item' =>  $user ]);
 } , 'auth');
 
 
@@ -68,8 +69,8 @@ $app->post('/users/del', function($app, $args){
 $app->post('/users/img', function($app, $args){
 	$user = User::find('id', $app->request->data['id']);
 	$app->middleware_obj = $user;
-	if($app->middlewares('is_self,admin')) {
+	if($app->middlewares('is_self, admin')) {
 		return $app->controller('users@img_upload', $args);
 	}
 	return  $app->controller('users@denied', $args);
-},'admin, manager' );
+},'auth' );

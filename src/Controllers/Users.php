@@ -127,7 +127,8 @@ class Users extends Controller
 		return $app->mode_trigger( 
 		function ($app,$args,$response) {
 			return $app->redirect( isset($app->request->data['redirect_url'])  ? $app->request->data['redirect_url'] : '/users' );
-		},function($app,$args,$response){
+		},
+		function($app,$args,$response){
 			return $app->json($response);
 		}, $response);
 	}

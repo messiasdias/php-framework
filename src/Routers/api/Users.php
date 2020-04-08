@@ -8,15 +8,10 @@ $app->post('/login', function($app,$args){
 });
 
 
-//social/login
-$app->post('/social/login', function($app,$args){
-	return $app->controller('Auth@social_login', $args);
-});
-
 //user
 $app->post('/user', function($app, $args){
 	return $app->json([ 'user' => $app->user() ] );
-} );
+} , 'auth');
 
 
 //list
@@ -34,20 +29,11 @@ $app->post('/users/add', function($app, $args){
 } , 'admin');
 
 
-
-//update
-/*
-$app->post('/users/edit', function($app, $args){
-	return $app->controller('users@update', $args);
-} , 'auth');
-*/
-
-
 //Users Update form
-$app->post('/{us}/edit', function($app, $args){
+$app->post('/users/edit', function($app, $args){
     $app->middleware_obj = $app->request->data;
 
-    if( in_array($args->us , [ 'user','users' ]) && $app->middlewares('admin, is_self') ){
+    if( $app->middlewares('admin, is_self') ){
         return $app->controller('users@update', $args);
     }
     else{
@@ -59,7 +45,7 @@ $app->post('/{us}/edit', function($app, $args){
 
 
 //get profile
-$app->get('/users/{id}int', function($app, $args){
+$app->router_group(['/users/{id}int', '/user/{id}int'], function($app, $args){
 	$user =  User::find('id', $args->id);
 	unset($user->pass);
 	return $app->json( ['user' =>  $user ]);

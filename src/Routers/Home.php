@@ -65,7 +65,7 @@ $app->router_group(['/', '/home'], function($app,$args) {
 
  //home - Twig
 $app->router_group([ '/', '/home'], function($app,$args) {  
-	return $app->controller('home@index');
+	return $app->controller('home');
  } );
 
 
@@ -93,7 +93,7 @@ $app->router_group( [ [ 'url' => '/logout'], [ 'url'=> '/logout', 'method' => 'p
 	//logout painel Vuejs
 	//$app->auth()->logout();
 	//return $app->view('vue-template');
-});
+}, 'auth');
 
 
 

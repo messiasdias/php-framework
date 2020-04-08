@@ -19,7 +19,8 @@ const router = new VueRouter({
         name: 'Http',  
         component: Http,
         props:{
-          error: 404
+          code: "404",
+          msg: "Not Found"
         }
        },
   

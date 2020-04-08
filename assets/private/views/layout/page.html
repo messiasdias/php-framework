@@ -1,0 +1,13 @@
+{% include 'layout/header.html'  %}
+<link rel="stylesheet" href="/assets/css/style.css">
+<div class="home">
+    {% block home %}{% endblock %}
+    {% if log.msg %}
+    <div class="log">
+        {% for item in log.msg %}
+        <p>{{ item|capitalize }}</p>
+        {% endfor %}
+    <div>
+    {% endif %}
+</div>
+{% include 'layout/footer.html'  %}    

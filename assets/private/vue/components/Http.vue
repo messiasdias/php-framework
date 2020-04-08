@@ -1,13 +1,15 @@
 <template>
 <div class="home">
-    <h1>Error {{error}}</h1>
+    <h1>{{code}}</h1>
+    <p>{{msg}}</p>
 </div>
 </template>
 <script>
 export default{
     name: "Http",
     props:{
-        error: String
+        code: String,
+        msg: String
     }
 }
 </script>

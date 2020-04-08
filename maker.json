@@ -1,0 +1,11 @@
+{
+    "controller": "src/Controllers/",
+    "model": "src/Models/",
+    "route": {
+        "app":"src/Routers/",
+        "api":"src/Routers/api/"
+    },
+    "seeder": "src/Database/Seeds/",
+    "migration": "src/Database/Migrations/",
+    "config" : "config/"
+}

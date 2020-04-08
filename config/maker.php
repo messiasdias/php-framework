@@ -1,35 +1,13 @@
 <?php
+ /* Marker Config */
 
-/* 
- ## App Config  ###
-
- Defining: 
- $this->config = (object) array(
-     'key' => 'value'
- )
-
- Using:
- $value = $app->key | $this->key (on App Instânce); 
-
- */
+ // Marcation flag on item | Spoon Flag
+ $this->spoon_flag  = '##teste##'; 
 
 
-$this->config = (object) array(
-    'timezone' => 'America/Recife',
-    'description' => 'Messias Dias | PHP Framework - Project',
-    'debug' => true,
-    'debug_msg' => false,
-    'views' => '../assets/private/views/',
-);
+ // Seeder objects create predefinition
+$this->seeder_objects = (object) [
 
-
-$this->maker_config = (object) array(
-    
-    /* Marker Args */
-    'spoon_flag' => '##teste##', // 
-
-
-    
     /* Marker default Users - optional */ 
     "users" => array (
 
@@ -73,8 +51,4 @@ $this->maker_config = (object) array(
                 )
     ),
     
-        
-    
-    
-
-);
+];
