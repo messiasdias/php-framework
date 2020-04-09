@@ -13,6 +13,12 @@ $color2: #9e9e00;
 $color3: #779e00;
 $color4: #009e9e;
 
+$success: $color3;
+$error: #F85D5D;
+$info: $color4;
+$warning: $color2;
+
+
 //Break-points
 $md: 768px;
 
@@ -138,20 +144,35 @@ body{
 
 
 .log{
-    //border: solid 1px red;
+
     position: absolute;
     width: 100%;
     top: 0;
     left: 0;
     padding: 20px 0px;
-    background-color: $black2;
+    background-color: rgba($black2, .001);
     @extend .flex, .flex-col;
     box-shadow: 1px 1px 5px $black2;
     
     h1, h2, p{
-        color: $white !important;
+        color: $white;
         text-align: center;
-        font-size: 2vw !important;
+    }
+
+    & > .error{
+        color: $error !important;
+    }
+
+    & > .success{
+        color: $success !important;
+    }
+
+    & > .info{
+        color: $info !important;
+    }
+
+    & > .warning{
+        color: $warning !important;
     }
 
 }

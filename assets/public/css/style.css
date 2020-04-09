@@ -83,12 +83,19 @@ body {
   top: 0;
   left: 0;
   padding: 20px 0px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.001);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); }
   .log h1, .log h2, .log p {
-    color: #FFFFFF !important;
-    text-align: center;
-    font-size: 2vw !important; }
+    color: #FFFFFF;
+    text-align: center; }
+  .log > .error {
+    color: #F85D5D !important; }
+  .log > .success {
+    color: #779e00 !important; }
+  .log > .info {
+    color: #009e9e !important; }
+  .log > .warning {
+    color: #9e9e00 !important; }
 
 table {
   border: solid 1px #9e7700;

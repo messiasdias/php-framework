@@ -12,7 +12,7 @@ class Auth  extends Controller
 
 	public function index(App $app, $args=null){
 		//adminlte/login
-		return  $app->view(  $app->user() ? 'adminlte/dashboard' : 'adminlte/login' , ['user' => $app->user()] );
+		return  $app->view(  $app->user() ? 'users/dashboard' : 'users/login' , ['user' => $app->user()] );
 	}
 
 
@@ -37,6 +37,7 @@ class Auth  extends Controller
 
 	public function logout(App $app, $args=null){
 		$response = $app->auth()->logout();
+
 		return $app->mode_trigger( 
 			function ($app, $args,$response) {
 			return $app->redirect_header('/admin');
