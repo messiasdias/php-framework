@@ -41,7 +41,7 @@
 
         "autoload": {
                 "psr-4": {
-                        "App\\": "vendor/messiasdias/md-php-framework-lib/",
+                        "App\\": "vendor/messiasdias/php-library/",
                         "App\\Models\\" : "src/Models/",
                         "App\\Controllers\\" : "src/Controllers/",
                         "App\\Database\\" : "src/Database/"

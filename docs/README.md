@@ -759,21 +759,26 @@ Retorna um texto em formato de objeto JSON.
 
 Que ao depender do modo da aplicação Retorna uma View ou um texto em formato de objeto JSON.
 
-ou ainda 
+* $app->redirect(string $url, string $method = "GET", array $data=null)
 
-* $app->redirect('/new-url')
+Redireciona rota sem refresh no objeto $app, com a possibilidade de enviar um array $data.
 
-Retorna um texto em formato de objeto JSON.
+* $app->redirect_header(string $url)
+
+Redireciona rota com refresh no objeto $app via header.
 
 [Para Mais funcões do objeto $app](#app)
 
 
-### Invocando um Controller detro de uma Rota
+### Invocando um Controller dentro de uma Rota
 
-Assumindo que definimos a Classe  Controller `Test` em `src/Controllers`, dentro da definição de um rota ou funcção de outro controller podemos invocar a classe Test da seguinte forma:
+Assumindo que definimos a Classe  Controller `Test` em `src/Controllers`, e dentro da definição de um rota ou função de outro controller, podemos invocar a classe Test da seguinte forma:
+
+> '@' é o separador, equanto 'index' refere se ao método do controller Test, ambas as arbodagens terão o mesmo resultado, pois se não passado nome do método após o '@', será executado o método index do controller.
+Esse deve ser sempre implamentado segundo `App\Controller\ControllerInterface`.
 
 
-Invocando função index no controller Test
+Invocando função `index` no controller Test
 ```php
 $app->controller('Test@index');
 //ou 
@@ -781,13 +786,196 @@ $app->controller('Test');
 ```
 
 
-Invocando outra função do controller Test
+Invocando outra função do controller Test denominada `outher`
 ```php
 $app->controller('Test@outher');
 ```
 
-'@' é o separador, equanto 'index' refere se ao método do controller Test, ambas as arbodagens terão o mesmo resultado, pois se não passado nome do método após o '@', será executado o método index do controller. 
+ 
 
 
 
 
+
+## <a id="models">Models</a>
+
+Essa camada trabalha diretamente com as entidades lógicas da aplicação: usuário, cliente, produto, etc...
+Tem como herança todas as funções e atributos de `App\Model\Model` que implementa a interface `App\Model\ModelInterface`.
+
+```php
+namespace App\Model;
+
+interface ModelInterface {
+
+	public function create();
+
+	public function update();
+
+    public function delete();
+    
+    //Inheritance from App\Model\Model
+    public function save(array $data,array $validations=null);
+    
+    //Inheritance from App\Model\Model
+    public function remove(array $validations=null);
+    
+    //Inheritance from App\Model\Model
+    public static function find($id, $value);
+    
+    //Inheritance from App\Model\Model
+	public static function all(array $paginate=null);
+
+}
+```
+
+
+
+### Definindo um Model
+
+
+#### Criando arquivos da Classe Model com o Maker
+*  Via Browser url
+```
+/maker/file/model:<mode_da_classe>
+```
+> Para Ajuda
+```
+/maker
+```
+
+* Via CLI
+
+No diretório raiz do projeto:
+```
+composer maker file model:<mode_da_classe>
+```
+> Para Ajuda
+```
+composer maker 
+```
+
+
+Os arquivos de classe Model são armazenados em `src/Models/`
+
+#### Estrutura de um Model
+
+```php
+/**
+ *  Test Model Class
+ */
+namespace App\Models;
+use App\Model\Model;
+use App\Database\DB;
+
+class Test extends Model {
+    //implicit public  $id, $created, $updated ;
+    public $table = 'test' ; //table/migration name
+    /* optional public/private att */
+    private $name;
+
+    /* optional code implementation */
+    public function getName(){
+        return $this->name;
+    }
+
+    /* optional code implementation */
+    public function setName(string $name){
+        $this->name = $name;
+    }
+
+	public function create (){
+        /* optional code implementation here */
+
+		$validations = [
+			'name' => 'string|minlen:5|noexists:test',
+			/* optional input validations */
+		];
+		return self::save( (array) $this , $validations);
+	}
+
+	public function update (){
+        
+        /* optional code implementation here */
+
+		$validations = [
+			'id' => 'int|exists:test',
+			'name' => 'string|minlen:5|noexists:test',
+			/* optional input validations */
+		];
+		return self::save( (array) $this , $validations);
+	}
+
+    /* abstract function */
+	public function delete(array $validations=null){
+    
+        /* optional code implementation here */
+
+        /* In remove() function, $validations = ['id' => 'int|mincount:1|exists:test] by default if this argument is null */
+        parent::remove($validations);
+	}
+
+}
+```
+
+#### Model Validações | Array $validations 
+Esta é uma maneira mais prática de implementar validações no seu crud utilizando `App::validate`.
+Consiste em criar uma simples array podendo ser chamado como preferir, e em sua extrutura as chaves(keys) correspondem aos atributos que serão validados antes crud no banco de dados, e os valores as expressões regulares [do validate](#validator).
+
+```php
+$validations = [
+	'id' => 'int|exists:<table_name>',
+	'name' => 'string|minlen:5|noexists:<table_name>',
+];
+```
+
+#### Usando um Model
+
+Podemos utilizar em qualquer lugar na aplicação desde que importado, criando uma nova instância do objeto model em questão ou usando os metodos státicos.
+Assumindo ter criado a o arquivo da class Model `Test`, vamos utiliza-lo com exemplo.
+
+
+```php
+use App\Models\Test;
+
+$data = ['name' => 'Teste 1'];
+$test = new Test($data);
+
+//or
+
+$test = new Test();
+//public attribute
+$test->name = 'Teste 1';
+//with set function
+$test->setName('Teste 1');
+```
+
+
+Model CRUD | Create, update e Delete
+
+```php
+//create
+$test->create();
+//update
+$test->update();
+//delete
+$test->delete();
+//returns an object(stdClass) { ["status"]=> bool ["msg"]=> string ["data"]=> array }
+```
+
+Model busca item e todos: `find`  e `all`
+
+```php
+
+//Find
+$test = Test::find('id', 1);
+// find by attribute id
+$test = Test::find('name', 1);
+// find by attribute name
+// returns an object from App\Models\Test ou false
+
+//All
+$tests = Test::all(); 
+//returns an array of objects App\Models\Test or false
+
+```
+[Para Mais funcões da Classe Model ](#app)
