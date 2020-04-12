@@ -39,11 +39,11 @@
 * [Composer](https://getcomposer.org/download/) 
 
 ```bash
-composer create-project -s dev messiasdias/md-php-framework-project
+composer create-project -s dev messiasdias/php-framework
 ```
-* [Git](https://github.com/messiasdias/md-php-framework-project)
+* [Git](https://github.com/messiasdias/php-framework)
 ```bash
-git clone https://github.com/messiasdias/md-php-framework-project.git <nome_do_diretorio_opcional>
+git clone https://github.com/messiasdias/php-framework.git <nome_do_diretorio_opcional>
 ```
 
 
