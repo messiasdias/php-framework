@@ -1,5 +1,5 @@
 {	
-        "name": "messiasdias/md-php-framework-project",
+        "name": "messiasdias/php-framework",
         "description": "PHP Framework Project - Messias Dias",
         "type": "project",
         "version": "1.0",
@@ -15,7 +15,7 @@
 
 	"require": {
                 "php": ">=7.2.0",
-                "messiasdias/md-php-framework-lib": "dev-master"
+                "messiasdias/php-library": "dev-master"
         },
         
         "scripts": {

@@ -543,7 +543,7 @@ No modo Api retornamos um Json.
 
 Para com uma unico método implementar rotas app e api, podemos utilizar a função `$app->mode_trigger()`, esta recebe como parâmetros 
 * Primeiro | Uma função callback que será executada no modo App
-* Segundo | Uma função callback que será executada no modo App
+* Segundo | Uma função callback que será executada no modo Api
 * Terceiro | Uma objeto/array/string que será repassado para o escopo da função callback.
 
 ```php
