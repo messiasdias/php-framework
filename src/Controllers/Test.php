@@ -15,7 +15,7 @@ class Test extends Controller
 	}
 
 
-	public function index($app, $args=null){
+	public function index(App $app, $args=null){
 
 		return $app->mode_trigger(
 			//app
@@ -30,6 +30,10 @@ class Test extends Controller
 			['title' => 'Test', 'subtitle' => 'Teste View OK!'] 
 		);
 
+	}
+
+	public function test(App $app, $args=null){
+		return $app->json($args);
 	}
 
 

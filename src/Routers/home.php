@@ -75,7 +75,7 @@ $app->router_group([ '/2', '/home2'], function($app,$args) {
  } );
 
  //admin painel
-$app->router_group(['/admin', '/login'], function($app,$args) {  
+$app->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
 	return $app->controller('Auth@index', $args);
  } );
 

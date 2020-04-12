@@ -2,7 +2,7 @@
 
 
 #### Start
-* [Iniciando Projeto](#start)
+* [Iniciando um Projeto](#start)
 * [Configurações](#config)
 
 #### Rota e MVC 
@@ -34,7 +34,7 @@
 
 
 
-## <a id="start"> Iniciando Projeto
+## <a id="start"> Iniciando um Projeto
 
 * [Composer](https://getcomposer.org/download/) 
 
@@ -171,22 +171,25 @@ composer maker file config [middlewares|db|key|app]
 composer maker 
 ```
 
+Os arquivos de configuração são armazenados em `/config`.
+
 
 ### /config/app.php 
 > Configurações diretamente relacionadas ao core do App.
 
 
-#### $this->config->debug [true| false ]
+##### $this->config->debug [true| false ]
 Ativa ou desativa opção debug do App, responsavel por diversas opções de que só devem ser ativas durante o desenvolvimento, como utilizar o Maker via URL.
 
-#### $this->config->timezone ['America/Recife']
+##### $this->config->timezone ['America/Recife']
 String Timezone ou fuso horário local.
 
-#### $this->config->description[String]
+##### $this->config->description[String]
 Texto Breve de descrição da aplicação. 
 
-#### $this->config->views = ['../assets/private/views/' ]
-String path/caminho do riretório padrão dos templates view Twig;
+##### $this->config->views = ['../assets/private/views/' ]
+
+String path/caminho do riretório padrão dos templates view Twig, que por padrão são armazenados em `assets/private/views/`.
 
 
 
@@ -214,19 +217,19 @@ $this->config->views = '../assets/private/views/';
 > Configurações referentes ao Banco de dados.
 
 
-#### $this->host
+##### $this->host
 Hostname ou ip do servidor de banco de dados
 
-#### $this->port
+##### $this->port
 Porta do servidor 
 
-#### $this->database
+##### $this->database
 Nome da base de dados
 
-#### $this->user
+##### $this->user
 Nome do usuário
 
-#### $this->pass
+##### $this->pass
 Senha do usuário
 
 
@@ -246,24 +249,23 @@ $this->pass = '<pass>';
 
 
 #### /config/key.php 
-> JWT Token HS256 key.
+> JWT Token HS256 key. Uma noma chave será gerada automaticamente se o valor da variável $key for igual a {your_key_here}*
 
 ```php 
 $key="{your_key_here}";
 ```
 
-*Uma noma chave será gerada automaticamente se o valor da variável $key for igual a {your_key_here}*
 
 
 ### /config/maker.php 
 
 > Configurações do Maker
 
-#### $this->spoon_flag 
+##### $this->spoon_flag 
 Marcação de item de teste
 
-#### $this->seeder_objects
-Dados predefinidos para serem propagados no seu banco de Dados usando as classes App\Database\Seeds, armazenadas em src/Database/Seeds.
+##### $this->seeder_objects
+Dados predefinidos para serem propagados no seu banco de Dados usando as classes `App\Database\Seeds`, armazenadas em `src/Database/Seeds`.
 
 
 ```php 
@@ -332,7 +334,7 @@ $this->seeder_objects = (object) [
 > Onde definimos methodos mediadores
 
 
-#### $this->middlewares = (object) [] 
+##### $this->middlewares = (object) [] 
 Recebe um objeto com funções denominadas middlewares/mediadores, estes podem autorizar ou não determinada tarefa no aplicativo e devem ter um retorno do tipo Boolean true ou false.
 
 ```php
@@ -437,12 +439,14 @@ composer maker
 ```
 
 
-Os arquivos de rota são armazenados em src/Routers e src/Routers/api (para rotas do modo api)
+Os arquivos de rota são armazenados em `src/Routers` e `src/Routers/api` (para rotas do modo api)
 
 #### Estrutura de uma Rota
 
 
-> $app-><get|post|put|delete>([$url](routers-url),[$callback](routers-callback),[$middlewares](routers-middlewares) );
+#### $method => [get | post| put | delete ]
+
+### $app->$method([$url](routersurl),[$callback](routerscallback),[$middlewares](routersmiddlewares) );
 
 Rota método Get simples
 ```php
@@ -453,13 +457,27 @@ $app->get('/test', function($app,$args){
 }, null);
 ```
 
+####  <a id="routersurl" > $url </a>
+Primeiro parâmetro do app route. A assinatura da rota em si. Nesse podemos usar o artifício da validação. 
+O pipe `|` é o separador das validações que definimos para determinado valor na URL e em diversos locais da apliação utilizando o metodo estático `App::validate()`.
+O App\Http\Router utiliza desse método para validar as rotas.
+
+[Para mais Validações com App::validate()](#validator)
+
+
+
+####  <a id="routerscallback" > $callback </a>
+Segundo parâmetro do app route. Consiste em uma Função de retorno definida na rota e executada caso corresponda os critérios dos middlewares (mediadores).
+Esta recebe os seguintes parâmetros em ordem: `$app` e `$args` e retorna `$app` sempre.
+
+####  <a id="routersmiddlewares" > $callback </a>
+Terceiro parâmetro do app route. 
+
+
 Rota método Get passando parâmetros para a função callback, no exemplo abaixo, temos o parâmetro `text|String`.
 Isso quer dizer que o valor passado na url após `/test/` será validado, e se este valor for do tipo string será atribuído ao objeto `$args`.
 Podemos fazer o Mesmo para o tipo inteiro com por exemplo `{id|int}`.
 
-O pipe `|` é o separador das validações que definimos para determinado valor na url e em diversos locais da apliação utilizando o metodo estático `App::validate()`.
-O App\Http\Router utiliza desse método para validar as rotas.
-[Para mais Validações com App::validate()](#validator)
 
 
 ```php
@@ -472,6 +490,8 @@ $app->get('/test/{text}string', function($app,$args){
 Recebendo dados de um formulário atraves do método POST array `$app->request->data`.
 
 As chaves do array correspondem aos seus atriubutos `name` definido no desenvolvimento da interface ou json.
+
+
 
 ```php
 $app->post('/url', function($app,$args){
@@ -515,7 +535,7 @@ $app->post('/url', function($app,$args){
 ```
 
 
-Nossa aplicação pode responder de dois "modos" (assim chamdos) via url: App e Api.
+Nossa aplicação pode responder de dois "modos" (assim chamdos) via url: `App` e `Api`.
 sabendo disso temos dois possíveis caminhos de retorno para o usuário ou outra aplicaçõa consumidora da api.
 
 No modo App retornamos uma view para usuário,
@@ -540,7 +560,7 @@ $app->get('/url', function($app,$args){
         function ($app, $args, $data) {
             return $app->json($data);
         },
-        //$data objeto repassado para o escopo interno
+        //$data objeto passado para o escopo interno
         $data
     );
 
@@ -552,7 +572,7 @@ $app->get('/url', function($app,$args){
 
 #### Grupos de Rotas
 
-> $app->router_group( array $config, function $callback, string|array $middlewares );
+> $app->router_group(array $config, function $callback, string|array $middlewares );
 
 
 
@@ -659,3 +679,115 @@ $app->router_group([
 
 
 ## <a id="controllers">Controllers</a>
+
+Os controllers são reponsáveis por interligar Views e Model (Intefaces do usuário e Lógida interna dos modelos). Podemos chamalos diretamente dentro da definição de uma rota.
+E estes são opcionais quando não há necessidade de uso.
+Por exemplo: tenho uma rota com o método GET que simplesmente apresenta uma view. Não faria sentido implementar um Controller exclusivamente pra apresentar uma view. 
+
+Do contrário, faz todo o sentido, já que é sim uma boa prática reutilizar código segundo o padrão de arquitetura de software MVC formulado na década de 1970 focado no reuso de código e a separação de conceitos em três camadas interconectadas, onde a apresentação dos dados e interação dos usuários (front-end) são separados dos métodos que interagem com o banco de dados (back-end).
+
+
+
+### Criando arquivos de classe Controller com o Maker
+* Via Browser url
+```
+/maker/file/controller:<nome_da_class>
+```
+>Para Ajuda
+```
+/maker
+```
+* Via CLI
+No diretório raiz do projeto:
+```
+composer maker file controller:<nome_da_class>
+```
+> Para Ajuda
+```
+composer maker 
+```
+
+
+> Os arquivos de classe Controller são armazenados em src/Controllers.
+
+
+#### Estrutura de um Controller
+
+```php
+namespace App\Controllers;
+use App\Controller\Controller;
+use App\App;
+/**
+ * TestController Class
+ */
+class Test extends Controller
+{	public $app;
+	
+	function __construct(App $app=null)
+	{
+		$this->app = $app;
+	}
+
+
+	public function index($app, $args=null){
+        /* code */
+		return $app;
+    }
+    
+    public function outher($app, $args=null){
+        /* code */
+		return $app;
+	}
+}
+```
+
+Como numa rota, podemos usar qualquer função de `$app` como:
+
+* $app->write(string $text, string $type [json|html], int $response_code = 200 )
+
+Retorna um texto na Tela  do Usuário.
+sem template, este Pode conter ou não tags html. 
+
+* $app->view(string $template, array $data, $string $path = '../assets/private/views/')
+
+Retorna uma view teplate para o usuário.
+* $app->json(array $data, int $response_code = 200)
+
+Retorna um texto em formato de objeto JSON.
+
+* $app->mode_trigger()
+
+Que ao depender do modo da aplicação Retorna uma View ou um texto em formato de objeto JSON.
+
+ou ainda 
+
+* $app->redirect('/new-url')
+
+Retorna um texto em formato de objeto JSON.
+
+[Para Mais funcões do objeto $app](#app)
+
+
+### Invocando um Controller detro de uma Rota
+
+Assumindo que definimos a Classe  Controller `Test` em `src/Controllers`, dentro da definição de um rota ou funcção de outro controller podemos invocar a classe Test da seguinte forma:
+
+
+Invocando função index no controller Test
+```php
+$app->controller('Test@index');
+//ou 
+$app->controller('Test');
+```
+
+
+Invocando outra função do controller Test
+```php
+$app->controller('Test@outher');
+```
+
+'@' é o separador, equanto 'index' refere se ao método do controller Test, ambas as arbodagens terão o mesmo resultado, pois se não passado nome do método após o '@', será executado o método index do controller. 
+
+
+
+
