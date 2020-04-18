@@ -7,7 +7,7 @@
     <ul class="menu" >
         <li> <a href="/" >Home Twig</a> </li>
         <li> <a href="/2" >Home VueJs</a> </li>
-        <li> <a href="https://github.com/messiasdias/md-php-framework-project" target="_blank" rel="noreferrer" >GitHub</a> </li>
+        <li> <a href="https://github.com/messiasdias/php-framework/tree/master/docs" target="_blank" rel="noreferrer" >Docs</a> </li>
     </ul> 
 
 </div>

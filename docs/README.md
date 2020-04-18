@@ -24,8 +24,8 @@
 
 
 #### Outros
-* [Public](#files)
-* [Private](#validator)
+* [Validator](#validator)
+* [File](#File)
 
 
 
@@ -39,7 +39,7 @@
 * [Composer](https://getcomposer.org/download/) 
 
 ```bash
-composer create-project -s dev messiasdias/php-framework
+composer create-project -s dev messiasdias/php-framework <nome_do_diretorio_opcional>
 ```
 * [Git](https://github.com/messiasdias/php-framework)
 ```bash
@@ -84,14 +84,14 @@ require_once "../vendor/autoload.php";
 use App\App;
 
 /* 
-Start App using the argument 'app' for site/App, 
-or with argument 'api'for API
+Start App using the argument 'mode' => 'app' for site/App, 
+or with argument 'mode' => 'api'for API
 -----------------------------------------------
-Iniciar App usando o argumento 'app' 
-Para site/App ou com o argumento 'api' Para API.
+Iniciar App usando o argumento 'mode' => 'app' 
+Para site/App ou com o argumento 'mode' => 'api' Para API.
 */
 
-$app = new App('app'); // 
+$app = new App([ 'mode' => 'app']); // 
 $app->run();
 ```
 
@@ -179,7 +179,7 @@ Os arquivos de configuração são armazenados em `/config`.
 
 
 ##### $this->config->debug [true| false ]
-Ativa ou desativa opção debug do App, responsavel por diversas opções de que só devem ser ativas durante o desenvolvimento, como utilizar o Maker via URL.
+Ativa ou desativa opção debug do App, responsável por diversas opções de que só devem ser ativas durante o desenvolvimento, como utilizar o Maker via URL.
 
 ##### $this->config->timezone ['America/Recife']
 String Timezone ou fuso horário local.
@@ -235,11 +235,8 @@ Senha do usuário
 
 ```php
 /* 
-Exemplo de configuração do Banco de Dados Mysql 
-
 $this-> [ host| port | database | user| pass ] = 'value';
 */
-
 $this->host = '<ip|hostname>';
 $this->port = '3306'; //port mysql default 
 $this->database = '<dbname>';
@@ -334,18 +331,16 @@ $this->seeder_objects = (object) [
 > Onde definimos methodos mediadores
 
 
-##### $this->middlewares = (object) [] 
+##### <a id="middlewares">$this->middlewares = (object) [] </a>
 Recebe um objeto com funções denominadas middlewares/mediadores, estes podem autorizar ou não determinada tarefa no aplicativo e devem ter um retorno do tipo Boolean true ou false.
 
 ```php
-<?php
 use App\App;
 
-/* Middlewares 
+/* 
+Middlewares ex: 
 
-    ex: 
-   
- $this->middlewares = (object) [   
+$this->middlewares = (object) [   
 
     'name' => function(App $app, object $middleware_obj){
         return true;
@@ -353,7 +348,6 @@ use App\App;
 
     ...
  ];
-
 */
 
 $this->middlewares = (object) [
@@ -406,7 +400,13 @@ $this->middlewares = (object) [
 ];
 
 ```
+Podem ser usadas como mediador do [callback](#routerscallback) de uma rota, ou diretamente durante checagens em qualquer lugar da aplicação com acesso a instância de $app atravez da função middlewares.
 
+####  $app->middlewares( strinbg|array $list, object $obj, boolean $return_app=false)
+
+```php
+    $app->middlewares()
+```
 
 
 # MVC
@@ -444,20 +444,19 @@ Os arquivos de rota são armazenados em `src/Routers` e `src/Routers/api` (para 
 #### Estrutura de uma Rota
 
 
-#### $method => [get | post| put | delete ]
+##### $method => [get | post| put | delete ]
 
-### $app->$method([$url](routersurl),[$callback](routerscallback),[$middlewares](routersmiddlewares) );
+#### $app->$method ( [string $url](routersurl), [function $callback](routerscallback), [array|string $middlewares](#middlewares) );
 
 Rota método Get simples
 ```php
-
 $app->get('/test', function($app,$args){
     echo "Test route Ok!"
     return $app;
 }, null);
 ```
 
-####  <a id="routersurl" > $url </a>
+####  <a id="routersurl" > string $url </a>
 Primeiro parâmetro do app route. A assinatura da rota em si. Nesse podemos usar o artifício da validação. 
 O pipe `|` é o separador das validações que definimos para determinado valor na URL e em diversos locais da apliação utilizando o metodo estático `App::validate()`.
 O App\Http\Router utiliza desse método para validar as rotas.
@@ -466,13 +465,15 @@ O App\Http\Router utiliza desse método para validar as rotas.
 
 
 
-####  <a id="routerscallback" > $callback </a>
+####  <a id="routerscallback" > function $callback </a>
 Segundo parâmetro do app route. Consiste em uma Função de retorno definida na rota e executada caso corresponda os critérios dos middlewares (mediadores).
 Esta recebe os seguintes parâmetros em ordem: `$app` e `$args` e retorna `$app` sempre.
 
-####  <a id="routersmiddlewares" > $callback </a>
-Terceiro parâmetro do app route. 
+####  <a id="routersmiddlewares" > array | string $middlewares </a>
+Terceiro parâmetro do app route são as funções [Middlewares/Mediadores](#middlewares) mediadores, estes podem autorizar ou não seguir o roteamento e executar a função callback.
 
+
+#### Exemplos
 
 Rota método Get passando parâmetros para a função callback, no exemplo abaixo, temos o parâmetro `text|String`.
 Isso quer dizer que o valor passado na url após `/test/` será validado, e se este valor for do tipo string será atribuído ao objeto `$args`.
@@ -531,6 +532,21 @@ $app->post('/url', function($app,$args){
 
 $app->post('/url', function($app,$args){
     return $app->controller('teste');
+}, null);
+```
+
+
+Redirecionando rota 
+
+```php
+$app->post('/url', function($app,$args){
+    //redirect with out refresh $app object
+    return $app->redirect('/url');
+}, null);
+//ou 
+$app->post('/url', function($app,$args){
+    //redirect with refresh $app object
+    return $app->redirect_head('/url');
 }, null);
 ```
 
@@ -743,27 +759,27 @@ class Test extends Controller
 
 Como numa rota, podemos usar qualquer função de `$app` como:
 
-* $app->write(string $text, string $type [json|html], int $response_code = 200 )
+* #### $app->write(string $text, string $type [json|html], int $response_code = 200 )
 
 Retorna um texto na Tela  do Usuário.
 sem template, este Pode conter ou não tags html. 
 
-* $app->view(string $template, array $data, $string $path = '../assets/private/views/')
+* #### $app->view(string $template, array $data, $string $path = '../assets/private/views/')
 
 Retorna uma view teplate para o usuário.
-* $app->json(array $data, int $response_code = 200)
+* #### $app->json(array $data, int $response_code = 200)
 
 Retorna um texto em formato de objeto JSON.
 
-* $app->mode_trigger()
+* #### $app->mode_trigger(function $app, function $api, $data)
 
 Que ao depender do modo da aplicação Retorna uma View ou um texto em formato de objeto JSON.
 
-* $app->redirect(string $url, string $method = "GET", array $data=null)
+* #### $app->redirect(string $url, string $method = "GET", array $data=null)
 
 Redireciona rota sem refresh no objeto $app, com a possibilidade de enviar um array $data.
 
-* $app->redirect_header(string $url)
+* #### $app->redirect_header(string $url)
 
 Redireciona rota com refresh no objeto $app via header.
 
@@ -853,7 +869,6 @@ composer maker file model:<mode_da_classe>
 ```
 composer maker 
 ```
-
 
 Os arquivos de classe Model são armazenados em `src/Models/`
 

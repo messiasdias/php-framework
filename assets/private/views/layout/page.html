@@ -1,13 +1,9 @@
 {% include 'layout/header.html'  %}
-<link rel="stylesheet" href="/assets/css/style.css">
+{% if log.msg %}
+    {% include "layout/alert.html" with { 'class':log.class, 'msg':log.msg } %}
+{% endif %}
 <div class="home">
     {% block home %}{% endblock %}
-    {% if log %}
-        <div class="log">
-            {% for item in log %}
-            <p class="{{item.class|lower}}">{{ item.msg|capitalize}}</p>
-            {% endfor %}
-        <div>
-    {% endif %}
 </div>
+
 {% include 'layout/footer.html'  %}    

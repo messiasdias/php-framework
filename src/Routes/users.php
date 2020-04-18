@@ -1,6 +1,31 @@
 <?php
 use App\Models\User;
 
+ //admin painel
+ $app->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
+	return $app->controller('auth@index', $args);
+ } );
+
+
+ $app->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
+	return $app->controller('auth@index', $args);
+ } );
+
+//login
+$app->post('/login', function($app,$args){
+	return $app->controller('Auth@login', $args);
+});
+
+//logout
+$app->router_group( [ [ 'url' => '/logout'], [ 'url'=> '/logout', 'method' => 'post' ] ], function($app,$args){
+	//logout painel Twig	
+	return $app->controller('Auth@logout', $args);
+
+	//logout painel Vuejs
+	//$app->auth()->logout();
+	//return $app->view('vue-template');
+});
+
 
 //list
 $app->router_group(['/users', '/users/list', '/users/{page}int/{ppage}int'], function($app, $args){
@@ -18,7 +43,7 @@ $app->post('/users/search', function($app, $args){
 //create form
 $app->get('/users/add', function($app, $args){
 	$args->type = 'add';
-	return $app->view('adminlte/users/form', ['type' => $args->type ]);
+	return $app->view('user/form', ['type' => $args->type ]);
 } , 'admin');
 
 
@@ -38,7 +63,7 @@ $app->get('/users/edit/{attr}str|minlen:4/{id}int|mincount:1', function($app, $a
 
 		if( $app->middlewares(['is_self','admin']) | ( $args->attr == 'type' && $app->middlewares('admin')  ) ){
 			$app->inputs( $app->middleware_obj );
-			return $app->view('adminlte/users/form', ['type' => $args->attr ]);
+			return $app->view('user/form', ['type' => $args->attr ]);
 		}
 		return $app->controller('users@denied');
 

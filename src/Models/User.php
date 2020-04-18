@@ -39,9 +39,7 @@ class User extends Model
 	
 		$this->first_name = ucwords($this->first_name);
 		$this->last_name = ucwords($this->last_name);
-
 		return self::save( (array) $this , $validations);
-	
 	}
 
 
@@ -77,8 +75,8 @@ class User extends Model
 		return $this->first_name.' '.$this->last_name;
 	}
 	
-	public function delete(array $validations=null){
-        parent::remove($validations);
+	public function delete(){
+        parent::remove();
 	}
 
 

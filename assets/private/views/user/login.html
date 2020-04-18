@@ -1,0 +1,46 @@
+{% include 'user/layout/header.html'  %}
+
+
+<div class="container login">
+
+
+<form class="" method="post" action="/login">
+ 
+    <h1>Login</h1>
+
+    <div class="form-group">
+      <input type="text" class="form-control" id="username" 
+      aria-describedby="username" id="username" name="username"
+      value="{{input.username}}" required placeholder="Username" />
+      
+      {% for error in log.errors.username  %}
+      <small id="username" class="form-text text-muted">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control" id="pass" name="pass" required 
+      placeholder="Password" />
+      
+      {% for error in log.errors.pass  %}
+      <small id="pass" class="form-text text-muted">{{ error }}</small>
+      {% endfor %}
+    </div>
+
+    <div class="form-group form-check  text-center">
+      <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox">
+      <label class="form-check-label" for="pass">Check me out</label>
+    </div>
+    
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+
+    <div class="form-group form-check text-center forgot">
+      <label class="form-check-label"><a href="#">Forgot your password?</a></label>
+    </div>
+
+  </form>
+
+</div>
+
+
+{% include 'user/layout/footer.html'  %}    

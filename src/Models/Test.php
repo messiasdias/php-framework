@@ -28,7 +28,7 @@ class Test extends Model {
 	}
 
 	public function delete(){
-		parent::remove($validations);
+		return parent::remove();
 	}
 
 
