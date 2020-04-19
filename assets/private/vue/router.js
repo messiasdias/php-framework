@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Http from './components/Http.vue' 
-import Home from './components/Home.vue' 
+import Http from './components/main/http.vue' 
+import Home from './components/main/home.vue' 
+import Dashboard from './components/Dashboard.vue' 
 
 
 const router = new VueRouter({
@@ -12,6 +13,13 @@ const router = new VueRouter({
         alias: '/home2' ,
         name: 'Home',
         component: Home,  
+      },
+
+      // Dashboard 
+      { path: '/admin',
+        alias: '/login' ,
+        name: 'Dashboard',
+        component: Dashboard,  
       },
   
       // NotFound

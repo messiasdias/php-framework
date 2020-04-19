@@ -8,7 +8,7 @@ $app->router_group([ '/', '/home'], function($app,$args) {
 
 //home2 - VueJs
 $app->router_group([ '/2', '/home2'], function($app,$args) {  
-	return $app->view('vue-template');
+	return $app->view('vue-app');
  } );
 
 

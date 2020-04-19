@@ -1,0 +1,69 @@
+{% extends "panel/layout/dashboard.html" %}
+{% block dashboard %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">{{title|capitalize}}</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+     {{inputs.username}}
+            <form role="form"  novalidate="novalidate" method="{{form.method}}" action="/{{form.url}}" >
+              <div class="card-body">
+
+                {% for input in form.inputs %}
+                    
+                        
+                        {% if input.type in ['text', 'email', 'password'] %}   
+                        <div class="form-group  mb-0">
+                            <label for="exampleInputEmail1">{{input.placeholder}}</label>
+                            <input type="{{input.type}}" name="{{input.name}}" class="form-control is-invalid" id="exampleInputEmail1" placeholder="{{input.placeholder}}" aria-describedby="{{input.name}}-error" aria-invalid="true">
+                            {% if inputs  %}   
+                                <span id="{{input.name}}-error" class="error invalid-feedback">Please enter a vaild email address</span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        {% if input.type in ['checkbox'] %} 
+                            <div class="form-group mb-0">
+                            <div class="custom-control custom-checkbox">  
+                                <input type="{{input.type}}" name="{{input.name}}" class="custom-control-input" id="{{input.name}}">
+                                <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                            </div>
+                            </div>
+                        {% endif %}
+
+                       
+               
+                {% endfor %}
+                
+        
+              </div>
+
+
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+
+            </form>
+          </div>
+          <!-- /.card -->
+          </div>
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  {% endblock %}

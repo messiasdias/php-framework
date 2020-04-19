@@ -1,0 +1,113 @@
+
+{% set title = 'Users ' ~ (type|capitalize)   %}
+
+{% set  form = { 
+
+    'name' : 'Users' ~ type ~ input.id ,
+    'url' :  type|lower == "add" ? "users/add" : "users/edit" ,
+    'method' : 'POST',
+    
+    'upload' :  ( type in ['name']) ?  {
+      'url' : 'users/img'
+    } : false,  
+
+    'buttons' : { 'template':'adminlte/users/buttons.html', 
+                    'data': input  },
+    'inputs' : { 
+    
+            0 :  ( type in ['add','name']) ?  {
+                'type': 'text',
+                'name':'first_name',
+                'value' : input.first_name ,
+                'placeholder' : 'First Name' ,   
+            } : false ,
+
+            1 : ( type in ['add','name']) ? {
+                'type': 'text',
+                'name':'last_name',
+                'value' : input.last_name ,
+                'placeholder' : 'Last Name' ,   
+            } : false ,
+
+            
+            2 : ( type in ['add']) ?
+             {
+                'type': 'text',
+                'name':'username',
+                'value' : input.username ,
+                'placeholder' : '@username' ,   
+            } : false ,
+
+            3 : ( type in ['add','email']) ?
+            {
+               'type': 'email',
+               'name':'email',
+               'value' : input.email ,
+               'placeholder' : 'you@mail.com' ,   
+           } : false ,
+
+           4 : ( type in ['email']) ?
+            {
+               'type': 'email',
+               'name':'confirm_email',
+               'value' : '' ,
+               'placeholder' : 'confirm_you@mail.com' ,   
+           } : false ,
+
+           5 : ( type in ['add','pass']) ?
+            {
+               'type': 'password',
+               'name':'pass',
+               'value' : '' ,
+               'placeholder' : '*********' ,   
+           } : false ,
+
+           6 : ( type in ['add','pass']) ?
+            {
+               'type': 'password',
+               'name':'confirm_pass',
+               'value' :'' ,
+               'placeholder' : '*********' ,   
+           } : false ,
+
+            7 : ( type in ['add','type']) ? 
+            {
+               'type': 'select',
+               'name':'rol',
+               'value' : input.rol ,
+               'options' : {
+                    
+                    0:{
+                        'name': 'Admin',
+                        'value': '1',
+                    } , 
+                    1 :{
+                        'name': 'Manager',
+                        'value': '2',
+                        } ,
+                    2: {
+                            'name': 'User',
+                            'value': '3',
+                        }   
+           },
+
+         } : false ,
+
+         8 : ( type in ['add', 'status']) ?
+         {
+            'type': 'checkbox',
+            'name':'status',
+            'value' : input.status ,
+              
+        } : false ,
+
+       
+
+  }
+
+}
+
+%}
+
+
+{% extends "panel/layout/form.html" %}

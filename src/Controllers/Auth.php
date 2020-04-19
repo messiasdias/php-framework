@@ -12,7 +12,8 @@ class Auth  extends Controller
 
 	public function index(App $app, $args=null){
 		//login
-		return  $app->view(  $app->user() ? 'user/dashboard' : 'user/login' , ['user' => $app->user()] );
+		//return  $app->view(  $app->user() ? 'panel/dashboard2' : 'panel/login' , ['user' => $app->user()] );
+		return  $app->view( 'vue-dashboard' , ['user' => $app->user()] );
 	}
 
 

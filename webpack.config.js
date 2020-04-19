@@ -6,24 +6,16 @@ module.exports = {
   mode: 'production',
   entry: { 
     main: './assets/private/vue/main.js',
-    assets: './assets/private/vue/assets.js'
+    dashboard : './assets/private/vue/dashboard.js',
   },
+  
   output: {
     path: path.resolve(__dirname, './'),
     publicPath: '/',
-    filename: './assets/public/vue/app-[name].js'
+    filename: './assets/public/vue/[name].js'
   },
   module: {
     rules: [
-      /*{
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-          }
-          // other vue-loader options go here
-        }
-      }, */
       {
         test: /\.js$/,
         loader: 'babel-loader',

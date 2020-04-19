@@ -43,7 +43,7 @@ $app->post('/users/search', function($app, $args){
 //create form
 $app->get('/users/add', function($app, $args){
 	$args->type = 'add';
-	return $app->view('user/form', ['type' => $args->type ]);
+	return $app->view('panel/users/form', ['type' => $args->type ]);
 } , 'admin');
 
 

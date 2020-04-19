@@ -8,27 +8,52 @@ $white: #FFFFFF;
 $white2: rgba(#FFFFFF, .3);
 $black: #000;
 $black2: rgba(#000, .3);
+$light: #DBE5FF;
+$dark: #091534;
 $color1: #9e7700;
-$color2: #9e9e00;
-$color3: #779e00;
-$color4: #009e9e;
+$color2: #0247FE;
+$color3: #012998;
 
 $success: $color3;
 $error: #F85D5D;
-$info: $color4;
-$warning: $color2;
+$info: $color1;
+$warning: $color1;
 
 //Break-points
 $md: 768px;
 
+
+
+
 //Bootstrap
+/*
+Colors Map default
+"primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+
+*/
+
 
 $theme-colors: (
-  "primary": $color1,
-  "danger": $error,
-); 
+  //"primary": $color1,
+  //"danger": $error,
+  //"light":  $light,
+  //"dark":  $dark
+);  
 
 @import "bootstrap/bootstrap";
+
+
+
+
+
+
 
 
 //flex
@@ -137,10 +162,6 @@ body{
                 font-weight: lighter;
                 text-align: center;
                 margin: 0px auto !important;
-                //font-size: 1.5vw;
-                @media screen and (max-width: #{$md}) {
-                    //font-size: 3vw;
-                }
             }
 
             &:hover{
@@ -160,6 +181,9 @@ body{
         border-radius: 50px;
         padding: 5px 10px;
         flex-direction: row !important;
+        a{
+            color: $white;
+        }
 
         &:hover{
             a{ color: $color2; }
@@ -245,7 +269,25 @@ table{
 }
 
 
+
+.navbar-toggler{
+    //display: none;
+    @media screen and (max-width: #{$md}) {
+        //display: block;
+    }
+}
+
+
+
+
+
 #menu{
+
+    //display: block;
+    @media screen and (max-width: #{$md}) {
+        //@extend .collapse, .navbar-collapse;
+    }
+
    .navbar-nav{
 
     display: flex;
