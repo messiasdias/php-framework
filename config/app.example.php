@@ -11,7 +11,8 @@
 
  */
 
+$this->config->api = true; 
 $this->config->debug = true;
 $this->config->timezone = 'America/Recife';
-$this->config->description = 'Messias Dias | PHP Framework - Project';
+$this->config->description = 'PHP Framework';
 $this->config->views = '../assets/private/views/';

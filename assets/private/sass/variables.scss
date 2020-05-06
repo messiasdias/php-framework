@@ -1,0 +1,62 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+$font: 'Nunito', sans-serif;
+
+
+//colors
+$white: #FFFFFF;
+$white2: rgba(#FFFFFF, .3);
+$black: #000;
+$black2: rgba(#000, .3);
+$black3: #3c4b64;
+$light: #ebedef;
+$dark: #091534;
+$color1: #9e7700;
+$color2: #0247FE;
+$color3: #012998;
+
+$success: #28a745;
+$error: #F85D5D;
+$info: #4799eb;
+$warning: #9e7700;
+$primary: #4638c2;
+
+
+
+$color_map: 
+"default" $light $black3,
+"success" $success $white,
+"error" $error $white, 
+"warning" $warning $white, 
+"info" $info $white, 
+"primary" $primary $white;  
+
+//Break-points
+$md: 768px;
+$lg: 1024px;
+
+
+
+@mixin scrollbar( $tumb1, $tumb2, $trak, $width:5px ) {
+
+    &::-webkit-scrollbar {
+      width: $width ;
+      max-height: 10px !important;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $trak !important;
+      border-radius: 4px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background:$tumb1 !important;
+      border-radius: 4px !important;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background:$tumb2 !important;
+      cursor: pointer !important;
+    }
+
+  }

@@ -1,0 +1,79 @@
+<div id="sidebar" class="ui-sidebar">
+
+<div onclick="$('.ui-sidebar#sidebar').slideToggle()"  class="ui-sidebar-close" >
+    <i class="fas fa-chevron-left"></i>
+</div>    
+
+<div class="ui-brand" >
+   <img src="/assets/img/default/md-logo2.png"/> 
+   <h1>{{description}}</h1>
+</div>
+
+
+<ul class="menu">
+
+
+    <li class="item">
+        <i class="fas fa-home"></i>
+        <a href="#">Home</a>
+    </li>
+
+    <li class="item active" >
+        <i class="fas fa-tachometer-alt"></i>
+        <a href="#">Dashboard</a>
+    </li>
+
+    <li class="item ui-dropdown" >
+
+        <div class="ui-dropdown-header">
+            <i class="fas fa-users"></i>
+            <a href="#ui-dropdown-menu-users">Users</a>
+        </div>
+
+
+        <ul id="ui-dropdown-menu-users" class="ui-dropdown-menu" >
+            <li class="ui-dropdown-item">
+                <i class="fas fa-plus"></i>
+                <a href="#">New</a>
+            </li>
+
+            <li class="ui-dropdown-item">
+                <i class="fas fa-list"></i>
+                <a href="#">List</a>
+            </li>
+
+        </ul>
+
+    </li>
+
+
+    <li class="item ui-dropdown">
+
+        <div class="ui-dropdown-header">
+            <i class="fas fa-cogs"></i>
+            <a href="#ui-dropdown-menu-settings">Settings</a>
+         </div>
+
+
+        <ul id="ui-dropdown-menu-settings" class="ui-dropdown-menu" >
+            <li class="ui-dropdown-item">
+                <i class="fas fa-plus"></i>
+                <a href="#">App Settings</a>
+            </li>
+
+            <li class="ui-dropdown-item">
+                <i class="fas fa-list"></i>
+                <a href="#">Api Settings</a>
+            </li>
+
+        </ul>
+    </li>
+
+</ul>    
+
+</div>
+
+
+<script>
+
+</script>   

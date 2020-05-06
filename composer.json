@@ -28,14 +28,9 @@
                         "php -S 0.0.0.0:8888 -t ./public/"
                 ],
 
-
-                "post-create-project-cmd": [
-                    "App\\Console\\Controllers\\MakerController::PostCreateProject"
-                ],
-
                 "maker": [
                         "App\\Console\\Controllers\\MakerController::maker"
-                 ]
+                ]
         },
 
 

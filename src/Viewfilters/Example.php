@@ -1,21 +1,22 @@
 <?php
-
 /*
 
     Example:
-
-    $view->addFunction(
-        new \Twig\TwigFunction('function_name', function ($arg) {
-            return $arg;
-        })
-    ); 
+    //array
+    $filters = [
+       //optional '$arg' and 'use (&$app)'
+        'function_name' => function ($arg) use (&$app) {
+            echo $text;
+        },
+    ];
 
 
 */
 
 
-$view->addFunction(
-    new \Twig\TwigFunction('teste', function (string $text) {
-         echo $text;
-    })
-); 
+$filters = [
+   'teste' => function() use (&$app) {
+       var_dump($app->request->url);
+        return "Teste ok!";
+    },
+]; 

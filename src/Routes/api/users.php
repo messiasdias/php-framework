@@ -3,8 +3,8 @@
 use App\Models\User;
 
 //login
-$app->post('/login', function($app,$args){
-	return $app->controller('Auth@login', $args);
+$app->post('/login', function(){
+	return $this->app->controller('Auth@login', $this->args);
 });
 
 

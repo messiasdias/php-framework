@@ -1,29 +1,4 @@
-//fonts
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
-$font: 'Nunito', sans-serif;
-
-
-//colors
-$white: #FFFFFF;
-$white2: rgba(#FFFFFF, .3);
-$black: #000;
-$black2: rgba(#000, .3);
-$light: #DBE5FF;
-$dark: #091534;
-$color1: #9e7700;
-$color2: #0247FE;
-$color3: #012998;
-
-$success: $color3;
-$error: #F85D5D;
-$info: $color1;
-$warning: $color1;
-
-//Break-points
-$md: 768px;
-
-
-
+@import "variables";
 
 //Bootstrap
 /*
@@ -47,7 +22,7 @@ $theme-colors: (
   //"dark":  $dark
 );  
 
-@import "bootstrap/bootstrap";
+//@import "bootstrap/bootstrap";
 
 
 
@@ -93,7 +68,7 @@ p, a{
 p{ 
     color: $color1;
     max-width: 90%;
-    font-size: 18px;
+    font-size: 1em;
 }
 
 
@@ -317,3 +292,29 @@ table{
        
    }
 }
+
+.log{
+    //border: solid 1px red;
+    width: 100%;
+    text-align: center;
+    @extend .flex, .flex-col;
+    justify-content: center;
+    align-items: center;
+}
+
+.success{
+    color: $success;
+}
+
+.error{
+    color: $error;
+}
+
+.warning{
+    color: $warning;
+}
+
+.info{
+    color: $info;
+}
+

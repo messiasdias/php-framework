@@ -1,5 +1,5 @@
 <?php 
 
- $app->get('/test' , $callback = function($app,$args) {  
-	$app->controller('test');
+ $this->get('/test' , function() { 
+	$this->app->view('ui');
  } , null);
