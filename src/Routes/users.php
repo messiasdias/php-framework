@@ -2,22 +2,22 @@
 use App\Models\User;
 
  //admin painel
- $app->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
+ $this->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
 	return $app->controller('auth@index', $args);
  } );
 
 
- $app->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
+ $this->router_group(['/admin', '/login', '/painel'], function($app,$args) {  
 	return $app->controller('auth@index', $args);
  } );
 
 //login
-$app->post('/login', function(){
+$this->post('/login', function(){
 	return $this->app->controller('Auth@login', $this->args);
 });
 
 //logout
-$app->router_group( [ [ 'url' => '/logout'], [ 'url'=> '/logout', 'method' => 'post' ] ], function($app,$args){
+$this->router_group( [ [ 'url' => '/logout'], [ 'url'=> '/logout', 'method' => 'post' ] ], function($app,$args){
 	//logout painel Twig	
 	return $app->controller('Auth@logout', $args);
 
@@ -28,34 +28,34 @@ $app->router_group( [ [ 'url' => '/logout'], [ 'url'=> '/logout', 'method' => 'p
 
 
 //list
-$app->router_group(['/users', '/users/list', '/users/{page}int/{ppage}int'], function($app, $args){
+$this->router_group(['/users', '/users/list', '/users/{page}int/{ppage}int'], function($app, $args){
 	return $app->controller('users@list', $args);
 } , 'admin');
 
 
 //search
-$app->post('/users/search', function($app, $args){
+$this->post('/users/search', function($app, $args){
 	return $app->controller('users@search', $args);
 } , 'admin', 200);
 
 
 
 //create form
-$app->get('/users/add', function($app, $args){
+$this->get('/users/add', function($app, $args){
 	$args->type = 'add';
 	return $app->view('panel/users/form', ['type' => $args->type ]);
 } , 'admin');
 
 
 //create
-$app->post('/users/add', function($app, $args){
+$this->post('/users/add', function($app, $args){
 	return $app->controller('users@create', $args);
 } , 'admin');
 
 
 
 //update update form - {attr} => name|email|type|pass
-$app->get('/users/edit/{attr}str|minlen:4/{id}int|mincount:1', function($app, $args){
+$this->get('/users/edit/{attr}str|minlen:4/{id}int|mincount:1', function($app, $args){
 	$user =  User::find('id', $args->id);
 	
 	if($user){
@@ -77,7 +77,7 @@ $app->get('/users/edit/{attr}str|minlen:4/{id}int|mincount:1', function($app, $a
 
 
 //get profile
-$app->router_group(['/users/{id}int', '/user/{id}int' ], function($app, $args){
+$this->group(['/users/{id}int', '/user/{id}int' ], function($app, $args){
 	$user =  User::find('id', $args->id);
 	unset($user->pass);
 	return $app->view('adminlte/users/profile', ['user_item' =>  $user ]);
@@ -85,13 +85,13 @@ $app->router_group(['/users/{id}int', '/user/{id}int' ], function($app, $args){
 
 
 //delete
-$app->post('/users/del', function($app, $args){
+$this->post('/users/del', function($app, $args){
 	return $app->controller('users@delete', $args);
 },'admin' );
 
 
 //Img upload
-$app->post('/users/img', function($app, $args){
+$this->post('/users/img', function($app, $args){
 	$user = User::find('id', $app->request->data['id']);
 	$app->middleware_obj = $user;
 	if($app->middlewares('is_self, admin')) {
