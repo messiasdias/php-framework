@@ -19,25 +19,20 @@
         },
         
         "scripts": {
-
-                "serve": [
-                        "composer dev"
-                ],
-
-                "dev": [
-                        "php -S 0.0.0.0:8888 -t ./public/"
-                ],
-
-                "maker": [
-                        "App\\Console\\Controllers\\MakerController::maker"
-                ]
+                "serve": ["composer dev"],
+                "dev": ["php -S 0.0.0.0:8888 -t ./public/"],
+                "maker": ["App\\Console\\Controllers\\MakerController::maker"],
+                "generate" : ["App\\Console\\Controllers\\DoctrineController::generate"],
+                "create-db": ["vendor/bin/doctrine orm:schema-tool:create"],
+                "update-db" : ["vendor/bin/doctrine orm:schema-tool:update"],
+                "doctrine" : ["vendor/bin/doctrine"]
         },
 
 
         "autoload": {
                 "psr-4": {
                         "App\\": "vendor/messiasdias/php-library/src/",
-                        "App\\Models\\" : "src/Models/",
+                        "App\\Models\\" : "src/Models",
                         "App\\Controllers\\" : "src/Controllers/",
                         "App\\Database\\" : "src/Database/"
                 }

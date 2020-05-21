@@ -64,7 +64,8 @@
     "dev": "vue-cli-service serve --port 8081 --watch ./assets/private/vue/main.js ",
     "dev-adminlte": "vue-cli-service serve --port 8082 --watch ./assets/private/vue/dashboard.js ",
     "build": "webpack -p ",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "test" : "vendor/bin/phpunit test"
   },
   "eslintConfig": {
     "root": true,
