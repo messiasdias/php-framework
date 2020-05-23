@@ -1,0 +1,69 @@
+.shadow{
+    box-shadow: 1px 1px 5px $black2;
+}
+
+
+.ui-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ui-tag {
+    position: relative;
+    background: #ccc;
+    color: $black;
+    padding: 2px 4px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: bolder;
+
+    @each $name, $bg, $cl in $color_map {
+        
+        &-#{$name} {
+            @extend .ui-tag;
+            background: $bg !important;
+            color: $cl !important;
+        }
+    }
+   
+}
+
+
+.ui-brand {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+
+    img{
+        width: 25px;
+    }
+
+    h1{
+        color: $white;
+        font-family: $font;
+        font-weight: bolder;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+}
+
+
+.ui-100p100{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+   @extend .ui-center;
+   overflow-y: scroll !important;
+   padding: 20px;
+}
+
+.alert{
+    text-align: center;
+    padding: 0px !important;
+    max-width: 80%;
+    margin: 10px auto !important;
+}

@@ -1,0 +1,130 @@
+@import "./btn.scss";
+
+form {
+
+    label { 
+        font-family: $font;
+        margin-right: 10px; 
+        margin-bottom: 5px; 
+        font-weight: normal;
+        font-size: 16px;
+        color: $black3;
+        max-width: 350px;
+    }
+
+    input, select {
+
+        max-width: 100%;
+        border: solid 1px $black2;
+        padding: 8px;
+        border-radius: 4px;
+        background: $white;
+        color: $black3;
+        transition-delay: 1s;
+        transition: border ease-in-out .3s;
+
+        &:focus{
+            border-color: rgba($primary, 0.8);
+            box-shadow: 0 1px 1px rgba( $primary, 0.075) inset, 0 0 5px rgba($primary, 0.6);
+            outline: 0 none;
+            transition-delay: 1s;
+            transition: border ease-in-out .3s;
+        }
+
+        &::placeholder{
+            font-family: $font;
+            font-size: 14px;
+        }
+
+    
+    }
+
+    select{
+        min-width: 120px;
+    }
+
+    input[type="date"]{
+        min-width: 120px;
+        text-align: center !important;
+    }
+
+    input[type="checkbox"] {
+        padding: 10px;
+        margin: 5px;
+    }
+
+
+    input.error {
+        border-color: $error !important;
+    }
+
+    input ~ .error-msg , select ~ .error-msg  {
+       color: $error;
+       font-size: 13px;
+    }
+
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
+
+  
+}
+
+
+
+.ui-form {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    align-self: center !important;
+
+    &-group{
+
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap !important;
+        padding: 10px;
+        width: 100%;
+    }   
+
+
+    &-btn-group {
+
+       @extend .ui-form-group;
+       display: inline-flex; 
+       flex-direction: row !important;
+       justify-content: center;
+       align-items: center; 
+       padding: 5px;
+
+       @media screen and (max-width: #{$md} ) { 
+        justify-content: center;
+        }
+   
+       select, option, textarea {
+           display: none;
+       } 
+
+       input[type="submit"] {
+        @extend .ui-btn-primary;
+       }
+
+       input[type="reset"]{
+        @extend .ui-btn-default;
+       }
+
+       input[type="button"]{
+        @extend .ui-btn-primary;
+       } 
+
+
+
+    }
+       
+    
+}

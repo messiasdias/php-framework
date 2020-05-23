@@ -1,0 +1,42 @@
+.ui-btn {
+    position: relative;
+    min-width: 100px;
+    max-width: 200px;
+    background: #ccc;
+    color: $black;
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: bolder;
+    transition-delay: 1s;
+    transition: border ease-in-out .3s;
+    opacity: .8;
+    border: none !important;
+
+    @each $name, $bg, $cl in $color_map {
+        
+        &-#{$name} {
+            @extend .ui-btn;
+            background: $bg !important;
+            color: $cl !important;
+           
+            &:hover,  &:focus {
+                cursor: pointer;
+                transition-delay: 1s;
+                transition: border ease-in-out .3s;
+            }
+
+            &:hover{
+                opacity: 2;
+            }
+            
+            &:focus {
+                border-color: rgba($bg, 0.8);
+                box-shadow: 0 1px 1px rgba($bg, 0.075) inset, 0 0 5px rgba($bg, 0.6);
+                outline: 0 none;
+            }
+        }
+    }
+
+}

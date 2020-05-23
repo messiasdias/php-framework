@@ -1,0 +1,75 @@
+@import "./bootstrap-custom/bootstrap.scss";
+@import "./ui/html.scss";
+
+
+
+.ui-dashboard {
+    box-sizing: border-box !important;
+    position: relative !important;
+    @extend  .row;
+    max-width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    &-left, &-right{
+        box-sizing: border-box !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+
+    &-left {
+        position: fixed;
+        width: 100% ;
+        z-index: 10;
+        display: none;
+
+        @media screen and (min-width: $lg ) {
+            width: 25%;
+            position: relative !important ;
+            display: flex;
+            z-index: 1 !important;
+        }
+    }
+
+    &-right{
+        @extend .row;
+        position: relative !important;
+        width: 100%;
+
+        @media screen and (min-width: $lg ) {
+            width: 75% ;
+            position: relative !important ;
+        }
+
+    }
+
+}
+
+
+
+.ui-main{
+    //border: solid 2px green;
+    position: relative;
+    background: $light;
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    overflow-y: scroll !important;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    box-sizing: border-box !important;
+    @include scrollbar( $primary, $primary, $black2, 5px );
+}
+
+
+
+
+
+@import "./ui/outhers.scss";
+@import "./ui/box.scss";
+@import "./ui/btn.scss";
+@import "./ui/footer.scss";
+@import "./ui/form.scss";
+@import "./ui/navbar.scss";
+@import "./ui/sidebar.scss";

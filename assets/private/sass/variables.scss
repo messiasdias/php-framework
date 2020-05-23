@@ -23,6 +23,15 @@ $primary: #4638c2;
 
 
 
+$theme-colors: (
+  "success":    $success,  
+  "primary": $color1,
+  "danger": $error,
+  "light":  $light,
+  "dark":  $black3,
+  "warning": $warning,
+);  
+
 $color_map: 
 "default" $light $black3,
 "success" $success $white,

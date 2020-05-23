@@ -1,0 +1,56 @@
+<div class="ui-navbar">
+    <div class="ui-navbar-header">
+
+        <!-- navbar Left -->
+        <div class="ui-navbar-header-left">
+            
+            <ul>
+                <li class="ui-sidebar-toggle"  > <i class="fa fa-bars"></i> </li>
+                {% if user %}
+                <li class="item" > <a href="#">Dashboard</a></li>
+                <li  class="item" > <a href="#">Users</a></li>
+                <li  class="item" > <a href="#">Settings</a></li>
+                {% endif %}
+            </ul>
+
+        </div>
+
+
+        {% if user %}
+         <!-- navbar Right -->
+        <div class="ui-navbar-header-right">
+
+            <ul>
+                <li class=""> <i class="far fa-moon"></i> </li>
+                <li class="item" > 
+                    <i class="far fa-bell"></i> 
+                    <span class="ui-tag-error">5</span>
+                </li>
+
+                <li  class="item" >
+                    <i class="fas fa-list-ul"></i>
+                    <span class="ui-tag-warning">5</span>
+                </li>
+
+                <li  class="item" >
+                    <i class="far fa-envelope"></i>
+                    <span class="ui-tag-info">70</span>
+                </li>
+
+                <li  class="" > <img src="/assets/{{user.img}}" > </li>
+                <li  class="" > <i class="fas fa-ellipsis-h"></i> </li>
+            </ul>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+     <!-- navbar Footer -->
+    <div class="ui-navbar-footer">
+       <a class="destak" href="#"> Home</a> / <p>Dashboard </p>
+    </div
+
+</div>

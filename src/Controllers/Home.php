@@ -9,7 +9,7 @@ class Home extends Controller
 {	
 
 	public function index($app, $args=null){
-		return $app->view('welcome', $args);
+		return $app->view('home', $args);
 	}
 
 

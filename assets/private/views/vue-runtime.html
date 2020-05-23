@@ -1,0 +1,42 @@
+{% extends 'ui/template.html'  %}
+{% block home %}
+
+<div id="app">
+    <Test/>
+</div>
+
+<template id="test001"  >
+    <div  class="home" >
+        <h1>Teste Vue.js RunTime</h1>
+        <p>If you your test be working correctly. Message is: {{message}}</p>
+    </div>
+</template>
+
+<script type="module"  >
+import '/assets/js/vue.js';
+
+Vue.component('Test', {
+    template: "#test001",
+})    
+
+let app = new Vue({
+    el: "#app",
+    data: function(){
+        return {
+            message: "Hello!"
+        }
+    },
+    beforeCreate: function() {
+        console.log(this.message)
+    },
+    created: function() {
+        this.message =  "Hello!"
+    }
+});
+
+console.log(app)
+
+</script>
+
+
+ {% endblock %}

@@ -1,0 +1,186 @@
+.ui-sidebar {
+
+    @extend .col;
+    position: relative;
+    width: 300px;
+    height: 100vh;
+    background: $black3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 !important;
+
+
+    @media screen and (min-width: #{$lg} ) {
+        &-toggle{
+            //display: none;
+        }
+    }
+
+    @media screen and (min-width: #{$md} ) {
+        position: relative;
+        display: flex;
+    }
+
+    @media screen and (max-width: #{$md - 1}) {
+        position: absolute;
+        display: none;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+
+    &-close{
+        @extend .ui-center;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        justify-content: flex-end;
+        padding-right: 20px;
+        background-color: $black3;
+
+        svg{
+            font-size: 18px;
+            color: $light;
+            cursor: pointer;
+        }
+
+        @media screen and (min-width: #{$md} ) {
+          // display: none;
+        }
+
+        display: none;
+    }
+
+    .ui-brand{
+        width: 100%;
+        h1{color:  $white }
+        img{display: none;}
+        margin-bottom: 80px;
+        padding: 20px 0px;
+        @media screen and (max-width: #{$lg} ) {margin: 0px !important;}
+    }
+
+    & > .menu {
+        //border: solid 1px red;
+        width: 100%;
+        max-height: 400px;
+        list-style: none;
+        overflow-y: visible;
+        @include scrollbar( $primary, $primary, $black2, 5px );
+    
+        @media screen and (max-width: #{$lg} ) {
+            overflow-y: scroll !important;
+            z-index: 100;
+            max-height: 250px;
+        }
+        
+         .item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $white !important;
+            transition: all ease-in-out .5s ;
+
+            svg{
+                margin-left: 20px !important;
+                width: 10%;
+            }
+
+            a, svg{
+                color: $white !important;
+                font-size: 14px !important;
+            } 
+
+             a{
+                 text-decoration: none;
+                 font-family: $font;
+                 font-size: 14px;
+                 padding: 10px 10px;
+                 width: 90%;
+             }
+
+             &:hover {
+                 background: $primary;
+                 cursor: pointer;
+             }
+
+             & ~ .active{
+                 background: $light;
+                 a, svg{
+                    color: $black3 !important;
+                } 
+
+                &:hover {
+                    transition: all ease-in-out .5s ;
+                    background: $primary;
+                    a, svg{
+                        color: $white !important;
+                    }
+                }
+             }
+         }
+         
+         
+         .ui-dropdown {
+            position: relative !important;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: $white2;
+
+
+            &::after{
+               // content: "\f104";
+                font-family: FontAwesome;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                right: 20px;
+                top: 2.5px;
+                font-weight: bolder;
+                font-size: 18px;
+            }
+
+
+            &:hover{
+                &::after{
+                    //content: "\f078";
+                }
+            }
+
+            &-header{
+                display: flex;
+                flex-direction: row;
+                @extend .item;
+            }
+
+            &-menu{
+                list-style: none;
+                width: 100%;
+                display: none;
+            }
+
+            &-item{
+                @extend .item;
+                background: $black3;
+
+                svg{
+                    font-size: 10px;
+                }
+
+                &:hover{
+                    background: $primary;
+                    cursor: pointer;
+                }
+
+            }
+
+         }
+    }
+
+}

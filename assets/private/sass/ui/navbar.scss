@@ -1,0 +1,120 @@
+
+//ui-navbar
+.ui-navbar{
+    @extend  .col , .shadow;
+    position: relative;
+    background-color: $white;
+    min-width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    z-index: 2;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+   
+    @media screen and (max-width: #{$md} ) {
+        width: 100%;
+        z-index: 1;
+    }
+
+    &-header, &-footer{
+        box-sizing: border-box !important;
+        padding: 5px 20px !important;
+    }
+
+    &-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+       
+        ul{ 
+            list-style: none;
+            display: inline-flex !important;
+            align-items: center;
+
+            & > li {
+                margin: 0px 20px;
+                cursor: pointer;
+                opacity: .8;
+
+                svg{
+                    font-size: 15px;
+                    font-weight: lighter !important;
+                }
+
+                & > .ui-tag{
+                    position: absolute;
+                    transform: translateY(-10px) translateX(2px);
+                }
+
+                & ~ .item{
+                    @media screen and (max-width: #{$md} ) {
+                        display: none;
+                    }
+                }
+
+                &, a {
+                    font-family: $font;
+                    color: $black3 ;
+                    font-weight: lighter;
+                }
+
+                a{
+                    text-decoration: none;
+                }
+
+                & > img{
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 100% !important;
+                }
+
+                &:hover{
+                    opacity: 2;
+                }
+            }
+        }
+    
+
+        &-left{
+
+            ul{ 
+
+                li{
+                    svg{
+                        font-size: 20px;
+                        font-weight: lighter;
+                    }
+
+                    & ~ .item{
+                        @media screen and (max-width: #{$md} ) {
+                            display: none;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+
+
+        &-right{
+            padding: 10px;    
+        }
+
+    }
+
+
+    &-footer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: solid .5px $black2;
+      
+        a , p{
+            margin: 0px 10px;
+        }
+
+    }
+}

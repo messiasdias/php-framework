@@ -1,0 +1,21 @@
+{% include "ui/header.html" %}
+
+    {% if user %}
+    <div class="ui-dashboard-left">
+            {% include "ui/sidebar.html" %} 
+    </div>   
+   {% endif %}  
+
+    <div class="ui-dashboard-right">
+        
+        {% include "ui/navbar.html" %}
+
+        <div class="ui-main">
+            {% block main %}{% endblock %}
+        </div>
+
+        {% include "ui/footbar.html" %}
+
+    </div>
+
+{% include "ui/footer.html" %}
