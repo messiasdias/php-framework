@@ -3374,7 +3374,7 @@ b, small, strong, .destak {
 .shadow, .ui-box, .ui-box-header img {
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
 
-.ui-center, .ui-main .container, .ui-main .container .row, .ui-main .container .ui-dashboard, .ui-100p100 {
+.ui-center, .ui-main .container, .ui-main .container .row, .ui-main .container .ui-dashboard, .ui-100p100, .ui-page-center {
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -3970,5 +3970,9 @@ form div {
     width: 100%; }
   .page h1, .page h2, .page h3 {
     color: #3c4b64; }
+
+.ui-page-center {
+  width: 100% !important;
+  flex-direction: column; }
 
 /*# sourceMappingURL=style.css.map */
