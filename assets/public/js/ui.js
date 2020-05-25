@@ -47,9 +47,24 @@ let normalizeLayout = function(){
 }
 
 
+let setTheme = function(theme = 'default'){
+
+    if( theme == 'default' ){
+        $('.ui-dashboard').removeClass('dark')
+    }
+
+    if( theme == 'dark'  ){
+        $('.ui-dashboard').addClass('dark')
+    }
+    localStorage.setItem('theme', theme)
+}
+
+
 let jqueryReady  = function() {
 
-    
+    //Setting Theme Color
+    setTheme(localStorage.getItem('theme'))    
+
     $('.ui-sidebar>.menu>.item').click(function(event){
        
 
@@ -97,6 +112,15 @@ let jqueryReady  = function() {
     })
 
 
+    $('.ui-dark-toggle').click(function(){
+        if($('.ui-dashboard').hasClass('dark') ){
+            setTheme('default')
+        }else{
+            setTheme('dark')
+        }
+    })
+
+
 
     $(this).mouseup(e => {
        if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) 
@@ -117,6 +141,7 @@ let jqueryReady  = function() {
         normalizeLayout() 
     })
     
+
 }
 
 

@@ -44,6 +44,7 @@
         position: relative !important;
         width: 100% ;
     }
+    
 
 }
 
@@ -51,7 +52,7 @@
 
 .ui-main{
 
-    height: calc(100vh - 120px);
+    height: calc(100vh - 103px) !important;
     width: 100% !important;
     background: $light;
     overflow-y: scroll !important;
@@ -81,6 +82,7 @@
 }
 
 
+
 @import "./ui/outhers.scss";
 @import "./ui/box.scss";
 @import "./ui/btn.scss";
@@ -88,3 +90,4 @@
 @import "./ui/form.scss";
 @import "./ui/navbar.scss";
 @import "./ui/sidebar.scss";
+@import "./ui/dark.scss";

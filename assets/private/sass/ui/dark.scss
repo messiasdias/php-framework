@@ -1,0 +1,96 @@
+//Dark Theme
+
+.dark {
+
+$primary: $black3;
+
+.ui-dashboard {
+    background: $light2 !important;
+
+    &-left{
+        background: $white !important;
+    }
+}
+
+
+.ui-main {
+    background: $light2 !important;
+    @include scrollbar( $black2 , $light, $black2, 5px );
+}
+
+
+.ui-box {
+    color: $white !important;
+
+    h1,h2, h3, h4, h5, p, b, strong, small, label {
+        color: $white !important;
+    }
+    
+    & , .ui-box-header, .ui-box-content, .ui-box-footer{
+        background: rgba($dark, .4) !important;
+        opacity: .8;
+    }
+
+    .ui-box-header, .ui-box-footer{
+        border-color: rgba($dark, .4) !important;
+    }
+}
+
+.ui-navbar {
+    background: $black2 !important;
+
+    a , p, b, svg{
+        color: $black !important;
+    }
+   
+}
+
+.ui-sidebar {
+    background:  rgba($black, .5) !important;
+
+    .ui-brand{
+        img{ display: none;}
+        h1, h2, h3, h4,h5, p, strong, small{
+            color: $black2 !important;
+        }
+    }
+
+    & > .menu {
+
+        .item{
+
+            a, svg{
+                color: rgba($black, .6) !important;
+            }
+
+            & ~ .active{
+                background: $black2 !important;
+                a, svg{
+                    color: $white !important;
+                }
+            }
+
+            &:hover{
+                background: $white2 !important;
+                a, svg{
+                    color: $black !important;
+                }
+            }
+        }
+    }
+
+
+}
+
+
+
+.ui-footer {
+    background: $light2 !important;
+
+    a ,b,  p, svg{
+        color: $black !important;
+    }
+   
+}
+
+}

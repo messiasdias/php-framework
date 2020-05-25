@@ -16,12 +16,14 @@
         </div>
 
 
-        {% if user %}
+        
          <!-- navbar Right -->
         <div class="ui-navbar-header-right">
 
             <ul>
-                <li class=""> <i class="far fa-moon"></i> </li>
+                <li class="ui-dark-toggle"><i class="fas fa-adjust"></i> </li>
+
+                {% if user %}
                 <li class="item" > 
                     <i class="far fa-bell"></i> 
                     <span class="ui-tag-error">5</span>
@@ -38,12 +40,15 @@
                 </li>
 
                 <li> <img src="/assets/{{user.img}}" > </li>
+
+                {% endif %}
+
                 <li> <i class="fas fa-ellipsis-h"></i> </li>
+
             </ul>
 
         </div>
 
-        {% endif %}
 
     </div>
 

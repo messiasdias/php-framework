@@ -5,7 +5,7 @@
     top: 0;
     left: 0px;
     z-index: 10;
-    background: $black3;
+    background: $light2;
     height: 100vh !important;
 
 
@@ -18,7 +18,7 @@
     .ui-brand{
         width: 100%;
         h1{color:  $white }
-        img{display: non;}
+        img{display: none;}
         margin-bottom: 80px;
         padding: 20px 0px;
         @media screen and (max-width: #{$lg} ) {margin: 0px !important;}
@@ -35,7 +35,7 @@
         @include scrollbar( $primary, $primary, $black2, 5px );
     
         
-         .item{
+        .item {
             display: flex;
             align-items: center;
             justify-content: center;

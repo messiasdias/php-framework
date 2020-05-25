@@ -7,10 +7,10 @@
     width: 100%;
     min-height: 30px;
     background-color: $light;
-    padding: 20px auto !important;
+    padding: 40px auto !important;
     flex-direction: column-reverse;
     position: relative !important;
-    margin-top: 40px;
+    margin: 40px 0px;
 
     &-left, &-right{
         display: flex;
