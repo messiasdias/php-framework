@@ -18,6 +18,7 @@
     font-size: 12px;
     border-radius: 5px;
     font-weight: bolder;
+    box-shadow: 1px 1px 1px $black2;
 
     @each $name, $bg, $cl in $color_map {
         
@@ -30,6 +31,41 @@
    
 }
 
+.dark .ui-tag{
+
+    @each $name, $bg, $cl in $color_map_dark {
+        
+        &-#{$name} {
+            @extend .ui-tag;
+            background: $bg !important;
+            color: $cl !important;
+        }
+    }
+
+    @each $name, $bg, $cl in $color_map {
+        
+        .ui-navbar > .ui-navbar-header >  ul > li:hover {
+            border: solid 1px red !important;
+            & > .ui-tag-#{$name} {
+                @extend .ui-tag;
+                background: $bg !important;
+                color: $cl !important;
+            }
+        }
+    }
+}
+
+
+.ui-avatar{
+    width: 36px;
+    height: 36px;
+    border-radius: 100% !important;
+    box-shadow: 1px 1px 1px $black2;
+}
+
+.dark .ui-avatar{
+    filter: grayscale(70%);
+}
 
 .ui-brand {
     position: relative;

@@ -40,7 +40,16 @@ $color_map:
 "error" $error $white, 
 "warning" $warning $white, 
 "info" $info $white, 
-"primary" $primary $white;  
+"primary" $primary $white; 
+
+
+$color_map_dark: 
+"default" $dark $white,
+"success"$dark $white,
+"error" $dark $white, 
+"warning" $dark $white, 
+"info" $dark $white, 
+"primary" $dark $white; 
 
 //Break-points
 $md: 768px;

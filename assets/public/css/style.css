@@ -3378,14 +3378,15 @@ b, small, strong, .destak {
   justify-content: center;
   align-items: center; }
 
-.ui-tag, .ui-tag-default, .ui-tag-success, .ui-tag-error, .ui-tag-warning, .ui-tag-info, .ui-tag-primary {
+.ui-tag, .ui-tag-default, .ui-tag-success, .ui-tag-error, .ui-tag-warning, .ui-tag-info, .ui-tag-primary, .dark .ui-tag-default, .dark .ui-tag-success, .dark .ui-tag-error, .dark .ui-tag-warning, .dark .ui-tag-info, .dark .ui-tag-primary, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary {
   position: relative;
   background: #ccc;
   color: #000;
   padding: 2px 4px;
   font-size: 12px;
   border-radius: 5px;
-  font-weight: bolder; }
+  font-weight: bolder;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
   .ui-tag-default {
     background: #c2c2c2 !important;
     color: #3c4b64 !important; }
@@ -3404,6 +3405,64 @@ b, small, strong, .destak {
   .ui-tag-primary {
     background: #4638c2 !important;
     color: #FFFFFF !important; }
+
+.dark .ui-tag-default {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag-success {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag-error {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag-warning {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag-info {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag-primary {
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: #FFFFFF !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default {
+    background: #c2c2c2 !important;
+    color: #3c4b64 !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success {
+    background: #28a745 !important;
+    color: #FFFFFF !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error {
+    background: #F85D5D !important;
+    color: #FFFFFF !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning {
+    background: #9e7700 !important;
+    color: #FFFFFF !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info {
+    background: #4799eb !important;
+    color: #FFFFFF !important; }
+.dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover {
+  border: solid 1px red !important; }
+  .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-default .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-success .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-error .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-warning .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-info .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary, .dark .ui-tag-primary .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary {
+    background: #4638c2 !important;
+    color: #FFFFFF !important; }
+
+.ui-avatar, .ui-navbar-header ul > li > img {
+  width: 36px;
+  height: 36px;
+  border-radius: 100% !important;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+
+.dark .ui-avatar, .dark .ui-navbar-header ul > li > img, .ui-navbar-header .dark ul > li > img {
+  filter: grayscale(70%); }
 
 .ui-brand {
   position: relative;
@@ -3808,7 +3867,7 @@ form div {
         .ui-navbar-header ul > li svg {
           font-size: 15px;
           font-weight: lighter !important; }
-        .ui-navbar-header ul > li > .ui-tag, .ui-navbar-header ul > li > .ui-tag-default, .ui-navbar-header ul > li > .ui-tag-success, .ui-navbar-header ul > li > .ui-tag-error, .ui-navbar-header ul > li > .ui-tag-warning, .ui-navbar-header ul > li > .ui-tag-info, .ui-navbar-header ul > li > .ui-tag-primary {
+        .ui-navbar-header ul > li > .ui-tag, .ui-navbar-header ul > li > .ui-tag-default, .ui-navbar-header ul > li > .ui-tag-success, .ui-navbar-header ul > li > .ui-tag-error, .ui-navbar-header ul > li > .ui-tag-warning, .ui-navbar-header ul > li > .ui-tag-info, .ui-navbar-header ul > li > .ui-tag-primary, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-default, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-success, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-error, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-warning, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-info, .dark .ui-tag .ui-navbar > .ui-navbar-header > ul > li:hover > .ui-tag-primary {
           position: absolute;
           transform: translateY(-10px) translateX(2px); }
         @media screen and (max-width: 768px) {
@@ -3820,10 +3879,6 @@ form div {
           font-weight: lighter; }
         .ui-navbar-header ul > li a {
           text-decoration: none; }
-        .ui-navbar-header ul > li > img {
-          width: 36px;
-          height: 36px;
-          border-radius: 100% !important; }
         .ui-navbar-header ul > li:hover {
           opacity: 2; }
     .ui-navbar-header-left ul li svg {
@@ -4025,6 +4080,7 @@ form div {
 
 .ui-page-center {
   width: 100% !important;
-  flex-direction: column; }
+  flex-direction: column;
+  background: #c2c2c2; }
 
 /*# sourceMappingURL=style.css.map */
