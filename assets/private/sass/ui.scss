@@ -16,6 +16,7 @@
         padding: 0 !important;
         margin: 0 !important;
         min-height: 100vh !important;
+        box-shadow: none !important;
     }
 
 
@@ -25,9 +26,12 @@
         top: 0;
         left: 0px;
         width: $sidebarWidth;
-        z-index: 10;
+        z-index: 11 !important;
         display: none;
 
+        @media screen and (min-height: 1200px ) {
+            z-index: 11 !important;
+        }
 
         @media screen and (min-width: $lg ) {
             position: relative !important ;
@@ -47,32 +51,30 @@
 
 .ui-main{
 
-    min-height: 100vh;
-    position: relative !important;
+    height: calc(100vh - 120px);
+    width: 100% !important;
     background: $light;
     overflow-y: scroll !important;
-    @include scrollbar( $primary, $primary, $black2, 7px );
-    padding: 10px;
+    @include scrollbar( $primary, $primary, $black2, 5px );
+    padding: 0px 10px;
+    padding-top: 10px;
+    padding-bottom: 100px !important;
     box-sizing: border-box !important;
-    z-index: -1 !important;
-    
-  
-
-    & .opacity {
-        opacity: .1 !important;
-    }
+    box-shadow: none !important;
 
     .container{
         @extend .ui-center;
         padding: 0 !important;
         width: 100% !important;
-        min-height: 100% !important;
-        margin: 10px auto !important;
+        height: 100% !important;
+        box-shadow: none !important;
   
         .row{
             width: 100% !important;
+            height: 100% !important;
             @extend .ui-center;
             align-self: center !important;
+            box-shadow: none !important;
         }
     }
 

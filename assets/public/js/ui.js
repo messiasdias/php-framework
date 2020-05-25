@@ -91,7 +91,6 @@ let jqueryReady  = function() {
     })
 
 
-
     $('.ui-sidebar-toggle').click(function(){
         sidebar.toggle("fast")
         normalizeLayout()
@@ -117,8 +116,7 @@ let jqueryReady  = function() {
     $(this).resize(function(){ 
         normalizeLayout() 
     })
-
-    //normalizeLayout()
+    
 }
 
 

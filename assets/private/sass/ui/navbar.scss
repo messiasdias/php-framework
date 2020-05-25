@@ -1,19 +1,19 @@
 
 //ui-navbar
 .ui-navbar{
-    @extend  .col ;
     position: relative;
     background-color: $white;
-    min-width: 100% !important;
+    width: 100% !important;
     display: flex;
     flex-direction: column;
     user-select: none;
     z-index: 2;
     padding: 0 !important;
     box-sizing: border-box !important;
-    box-shadow: 1px 1px 5px $black2 !important;
+    box-shadow: 1px 1px 3px $black2 !important;
     z-index: 10;
-   
+    
+
     @media screen and (max-width: #{$md} ) {
         width: 100%;
         z-index: 1;
@@ -31,6 +31,7 @@
         justify-content: space-between;
         align-items: center;
         min-height: 60px;
+        height: 60px;
        
         ul{ 
             list-style: none;
@@ -116,6 +117,10 @@
         justify-content: flex-end;
         align-items: center;
         border-top: solid .5px $black2;
+
+        @media screen and (max-height: 500px ) {
+           background: transparent !important;
+        }
   
         a , p{
             margin: 0px 10px;

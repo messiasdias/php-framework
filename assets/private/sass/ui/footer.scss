@@ -1,56 +1,54 @@
 //ui-footer
-.ui-footer{
-
+.ui-footer {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    min-height: 50px;
-    background-color: $white;
-    //position: fixed !important;
-    position: relative !important;
-    bottom: 0 !important;
-    right: 0;
+    min-height: 30px;
+    background-color: $light;
     padding: 20px auto !important;
-    box-shadow: 1px -1px 5px $black2;
-
-
-    @media screen and (max-width: #{$md} ) {
-        flex-direction: column-reverse;
-    }
+    flex-direction: column-reverse;
+    position: relative !important;
+    margin-top: 40px;
 
     &-left, &-right{
         display: flex;
-        max-width: 50%;
+        width: 100%;
         min-width: 40%;
         flex-direction: row !important;
         justify-content: center;
         align-items: center;
+        font-size: 10px;
+        padding: 0;
+        @media screen and (min-width: $md ) {font-size: 12px;}
+        @media screen and (min-width: $lg ) {font-size: 14px;}
+        
 
-        @media screen and (max-width: #{$md} ) {
-            min-width: 90% !important;
-            font-size: 14px !important;
-            margin: 0px  !important;
-            padding: 0px !important;
-            justify-content: center !important;
+        img{
+            width: 10px;
+            margin-right: 5px;
         }
-    }
 
-    &-left{
-  
-        @media screen and (min-width: #{$lg} ) {
-            justify-content: flex-start;
-            padding-left: 10px;
+        @media screen and (min-width: $md ) {
+            img{
+                width: 12px;
+            }
         }
-    }
-    
-    &-right{
 
-
-        @media screen and (min-width: #{$lg} ) {
-            justify-content: flex-end;
-            padding-left: 10px;
+        @media screen and (min-width: $lg ) {
+            img{
+                width: 14px;
+            }
         }
+
+        a{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
     }
 
 
