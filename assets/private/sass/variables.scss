@@ -45,7 +45,8 @@ $md: 768px;
 $lg: 1024px;
 
 
-
+//Components
+$sidebarWidth: 300px;
 
 
 @mixin scrollbar( $tumb1, $tumb2, $trak, $width:5px ) {

@@ -1,12 +1,15 @@
 .ui-box{
-    @extend .shadow;  
+    @extend .shadow;
+    position: relative !important;  
     background: $white ;
-    margin: 10px !important; 
+    margin:  10px 10px !important; 
     border-radius: 5px;
     color: $black3;
     font-family: $font;
-  
-      
+    box-sizing: border-box !important;
+    
+
+
     &-header, &-footer {
       display: flex;
       align-items: center;

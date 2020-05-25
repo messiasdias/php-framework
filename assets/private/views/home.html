@@ -1,13 +1,25 @@
 {% extends 'ui/template.html'  %}
 
 {% block main %}
-    <img src="/assets/img/default/md-logo2.png"   alt="Messias Dias Logo" >
-    <h1>{{description}}</h1>
+
+<div id="home" class="col-12 page">
+
+    <div class="logo-content " >
+        <h1>{{description}}</h1>
+    </div>
+
     <p>Welcome with Twig Template Engine</p>
+
     <ul class="menu">
         <li> <a href="/" >Home Twig</a> </li>
         <li> <a href="/2" >Home VueJs</a> </li>
         <li> <a href="https://github.com/messiasdias/php-framework/tree/master/docs" target="_blank" rel="noreferrer" >Docs</a> </li>
     </ul> 
+
+</div>
+
+
+
+
 {% endblock %}
   

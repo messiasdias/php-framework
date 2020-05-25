@@ -1,1 +1,41 @@
 @import "./ui.scss";
+
+.page {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+
+    .logo-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+
+        img.logo {
+            width: 40px;
+            margin-right: 10px;
+        } 
+    }
+
+    img.logo {
+        max-width: 80px;
+        width: 100%;
+    } 
+
+
+    h1, h2, h3{
+        color: $black3;
+    }
+
+
+    .menu{
+        border: solid 1px red;
+    }
+    
+
+}

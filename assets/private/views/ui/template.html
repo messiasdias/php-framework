@@ -1,20 +1,23 @@
 {% include "ui/header.html" %}
 
-    {% if user %}
     <div class="ui-dashboard-left">
             {% include "ui/sidebar.html" %} 
     </div>   
-   {% endif %}  
 
     <div class="ui-dashboard-right">
         
         {% include "ui/navbar.html" %}
 
         <div class="ui-main">
-            {% block main %}{% endblock %}
+            <div class="container"> 
+                <div class="row"  >
+                    {% block main %}{% endblock %}
+                    {% include "ui/footbar.html" %}
+                </div>
+            </div>    
         </div>
 
-        {% include "ui/footbar.html" %}
+        
 
     </div>
 

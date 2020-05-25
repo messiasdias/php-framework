@@ -1,9 +1,5 @@
 <div id="sidebar" class="ui-sidebar">
-
-<div class="ui-sidebar-close" >
-    <i class="fas fa-chevron-left"></i>
-</div>    
-
+  
 <div class="ui-brand" >
    <img src="/assets/img/default/md-logo2.png"/> 
    <h1>{{description}}</h1>
@@ -15,12 +11,13 @@
 
     <li class="item">
         <i class="fas fa-home"></i>
-        <a href="#">Home</a>
+        <a href="/">Home</a>
     </li>
 
+    {% if user %}
     <li class="item active" >
         <i class="fas fa-tachometer-alt"></i>
-        <a href="#">Dashboard</a>
+        <a href="/admin">Dashboard</a>
     </li>
 
     <li class="item ui-dropdown" >
@@ -68,6 +65,19 @@
 
         </ul>
     </li>
+
+    <li class="item">
+        <i class="fas fa-sign-out-alt"></i>
+        <a href="/logout">Logout</a>
+    </li>
+
+    {% else %}
+
+    <li class="item">
+        <i class="fas fa-sign-in-alt"></i>
+        <a href="/login">Login</a>
+    </li>
+    {% endif %}
 
 </ul>    
 

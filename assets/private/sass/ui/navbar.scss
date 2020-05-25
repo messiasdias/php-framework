@@ -1,7 +1,7 @@
 
 //ui-navbar
 .ui-navbar{
-    @extend  .col , .shadow;
+    @extend  .col ;
     position: relative;
     background-color: $white;
     min-width: 100% !important;
@@ -11,6 +11,8 @@
     z-index: 2;
     padding: 0 !important;
     box-sizing: border-box !important;
+    box-shadow: 1px 1px 5px $black2 !important;
+    z-index: 10;
    
     @media screen and (max-width: #{$md} ) {
         width: 100%;
@@ -19,7 +21,8 @@
 
     &-header, &-footer{
         box-sizing: border-box !important;
-        padding: 5px 20px !important;
+        padding: 10px 20px !important;
+        min-height: 30px;
     }
 
     &-header{
@@ -27,6 +30,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        min-height: 60px;
        
         ul{ 
             list-style: none;
@@ -107,11 +111,12 @@
 
 
     &-footer{
+
         display: flex;
         justify-content: flex-end;
         align-items: center;
         border-top: solid .5px $black2;
-      
+  
         a , p{
             margin: 0px 10px;
         }

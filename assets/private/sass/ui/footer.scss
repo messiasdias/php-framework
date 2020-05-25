@@ -4,12 +4,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    position: relative;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     background-color: $white;
-    //position: absolute;
-    bottom: 0;
+    //position: fixed !important;
+    position: relative !important;
+    bottom: 0 !important;
+    right: 0;
+    padding: 20px auto !important;
+    box-shadow: 1px -1px 5px $black2;
 
 
     @media screen and (max-width: #{$md} ) {
@@ -17,7 +20,6 @@
     }
 
     &-left, &-right{
-        //border: solid 1px red;
         display: flex;
         max-width: 50%;
         min-width: 40%;
@@ -27,21 +29,28 @@
 
         @media screen and (max-width: #{$md} ) {
             min-width: 90% !important;
-            font-size: 12px !important;
-            margin: 0px 5px !important;
-            padding: 0 !important;
+            font-size: 14px !important;
+            margin: 0px  !important;
+            padding: 0px !important;
             justify-content: center !important;
         }
     }
 
     &-left{
-        justify-content: flex-start;
-        padding-left: 10px;
+  
+        @media screen and (min-width: #{$lg} ) {
+            justify-content: flex-start;
+            padding-left: 10px;
+        }
     }
     
     &-right{
-        justify-content: flex-end;
-        padding-right: 10px;
+
+
+        @media screen and (min-width: #{$lg} ) {
+            justify-content: flex-end;
+            padding-left: 10px;
+        }
     }
 
 

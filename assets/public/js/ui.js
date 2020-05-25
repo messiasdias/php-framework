@@ -1,4 +1,4 @@
-let breakpoints = {
+const breakpoints = {
     xs: 0,
     sm: 576,
     md: 768,
@@ -6,82 +6,121 @@ let breakpoints = {
     xl: 1200
 }
 
+const sidebar = $('.ui-dashboard-left');
 
+
+let screenWidthXLarge = function(){
+    return ( $(document).width() >=  breakpoints.xl )
+}
+
+let screenWidthLarge = function(){
+    return ( $(document).width() >=  breakpoints.lg ) && ( $(document).width() <  breakpoints.xl );
+}
+
+let screenWidthMedium = function(){
+    return ( $(document).width() >=  breakpoints.md ) && ( $(document).width() <  breakpoints.lg );
+}
+
+let screenWidthSmall = function(){
+    return ( $(document).width() >=  breakpoints.sm ) && ( $(document).width() <  breakpoints.md );
+}
+
+let screenWidthXSmall = function(){
+    return ( $(document).width() >  breakpoints.xs ) && ( $(document).width() < breakpoints.sm );
+}
+
+
+let normalizeLayout = function(){
+
+    if( sidebar.is(":visible") ){  
+
+        if( screenWidthLarge() | screenWidthXLarge()  ) {
+            $(".ui-dashboard-right").css('width', '75%' )
+        }else{
+            $(".ui-dashboard-right").css('width', '100%' )
+        }
+        
+    }else{
+        $(".ui-dashboard-right").css('width', '100%' )
+    }
+
+}
 
 
 let jqueryReady  = function() {
 
-    $(this).click(function(event){
-        console.log(event.clientX, event.clientY, $(".ui-dashboard-left") )
-        if( $(".ui-dashboard-left").is(':visible') ){
-           // $(".ui-dashboard-left").toggle()
-        }
-    })
     
     $('.ui-sidebar>.menu>.item').click(function(event){
-        event.preventDefault();
+       
 
-        if( !$(this).hasClass('ui-dropdown') ){
-            $(".ui-dashboard-left").toggle()
+        toggleIfLG = function(){
+            if( $(document).width() < breakpoints.lg ) 
+            {
+                sidebar.toggle("fast")
+            }
         }
-        else {
+
+        if( !$(this).hasClass('ui-dropdown') )
+        {
+            toggleIfLG()
+        }
+        else 
+        {
+            event.preventDefault()
+
             let dropdownMenu = $($(event.target).parent().parent().children()[1])
             let id = '#'+dropdownMenu[0].getAttribute('id')
             let href = event.target.getAttribute('href')
     
             if( dropdownMenu.hasClass('ui-dropdown-menu') && ( id === href ) ){
-                $('.ui-dropdown-menu'+id).toggle();
+                $('.ui-dropdown-menu'+id).toggle("fast");
+            }else{
+                toggleIfLG()
             } 
+
         }
+
+        normalizeLayout()
     }) 
 
 
-    $('.ui-dropdown-item').click(function(event){
-        event.preventDefault();
-        $(this).parent().toggle();
-    });
 
-
-    $('.ui-sidebar-toggle').click(function(){
-        event.preventDefault()
-        $(".ui-dashboard-left").toggle()
-
-        if( $(".ui-dashboard-right").width() >= breakpoints.lg ) {
-            if( $(".ui-dashboard-left").is(':visible') ){
-                $(".ui-dashboard-right").width('75%')
-            }else{
-                $(".ui-dashboard-right").width('100%') 
-            }
-        }else{
-            $(".ui-dashboard-right").width('100%') 
-        }
-        //console.log($(".ui-dashboard-right").width(), $(".ui-dashboard-left").is(':visible'))
-
-    });
-
-
-    $('.ui-sidebar-close').click(function(event){
-
-        event.preventDefault()
-        //console.log(event.target,  $(".ui-dashboard-left").width() ) ;
-
-        console.log($(".ui-dashboard-right").css('width') )
-
-        if( $(".ui-dashboard-right").width() >= breakpoints.lg ){
-           
-            if( $(".ui-dashboard-left").is(':visible') ){
-                $(".ui-dashboard-right").css('width', 'initial' );
-            }else{
-                $(".ui-dashboard-right").css('width', '100%' ) ; 
-            }
-
-        }
+    $('.ui-dropdown-item').click(function(){
+        $(this).parent().toggle("fast")
+        normalizeLayout()
     })
 
 
+
+    $('.ui-sidebar-toggle').click(function(){
+        sidebar.toggle("fast")
+        normalizeLayout()
+    })
+
+
+
+    $(this).mouseup(e => {
+       if (!sidebar.is(e.target) && sidebar.has(e.target).length === 0) 
+       { 
+            sidebar.hide()
+            normalizeLayout()
+       }
+      
+    })
+    
+
+    $(this).scroll(function(){ 
+        normalizeLayout() 
+    })
+
+
+    $(this).resize(function(){ 
+        normalizeLayout() 
+    })
+
+    //normalizeLayout()
 }
 
 
-$(document).ready(jqueryReady)
-
+$(document).ready(jqueryReady);
 
