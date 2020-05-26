@@ -4,7 +4,7 @@
     max-width: 200px;
     background: #ccc;
     color: $black;
-    margin: 5px;
+    margin: 5px !important;
     padding: 8px 15px;
     font-size: 12px;
     border-radius: 5px;
@@ -13,6 +13,12 @@
     transition: border ease-in-out .3s;
     opacity: .8;
     border: none !important;
+    border-radius: 50px !important;
+    text-align: center !important;
+
+    &:hover{
+        text-decoration: none !important;
+    }
 
     @each $name, $bg, $cl in $color_map {
         
@@ -37,6 +43,15 @@
                 outline: 0 none;
             }
         }
+
+
+        &-#{$name}2 {
+            @extend .ui-btn;
+            background: transparent;
+            border: solid 1px $bg !important;
+            color: $bg !important;
+        }
+
     }
 
 }

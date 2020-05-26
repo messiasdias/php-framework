@@ -1,0 +1,197 @@
+
+ .ui-page-container{
+    position: relative !important;
+    overflow-y: scroll !important;
+    background: rgba($primary, .05) !important;
+    width: 100vw;
+    height: 100vh;
+    @include scrollbar( $primary, $primary, $black2, 5px );
+}
+
+
+.ui-page {
+    width: 100% ;
+    position: relative !important;
+    margin: 20px auto !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    background-color: $white;
+
+    @media screen and (min-width: #{$lg}){
+         box-shadow: 1px 1px 5px $black2;
+         width: calc(95%) !important;
+    }
+
+    .row{
+        //border:  solid 1px red !important;
+        @extend .container-fluid;
+        margin: 0 !important;
+        padding: 10px !important;
+        align-self: stretch !important;
+    }
+
+    .menu {
+        display: inline-flex;
+        justify-content: center;
+        list-style: none;
+        padding: 15px;
+        box-sizing: border-box !important;
+        max-height: 80px;
+    
+        li{
+            margin: 5px;
+            padding: 5px 15px !important;
+            border: solid 1px transparent;
+            text-align: center !important;
+            display: flex;
+            justify-content: center;
+            align-items:  center;
+            border-radius: 50px !important;
+            
+            a{
+                font-size: 12px;
+                font-weight: 500 !important;
+                @media screen and (min-width: $md  ) { font-size: 14px; }
+                font-weight: lighter;
+                &:hover {
+                    text-decoration: none !important;
+                }
+            }
+
+
+            &:hover{
+                @include boderRotateEfect('page-li-menu', $primary, 1px, 1 );
+                color: $primary !important;
+            }
+    
+            &.active {
+                @include boderRotateEfect('page-li-menu', $primary, 1px, infinite, 2s );
+                a, svg {
+                    color: $primary !important;
+                }
+            }
+        }
+
+
+    }
+
+    &-header,   &-body,   &-footer{
+        @extend .row;
+        box-sizing: border-box !important;
+    }
+
+    &-header{
+        @extend .flex-row, .flex-justify-aro;
+        @media screen and (min-width: $md ) {
+            justify-content: flex-end !important;
+        }
+    }
+
+
+    &-body{
+        @extend .flex-col, .flex-items-center, .flex-justify-center;
+        min-height: 500px;
+
+        &-left,  &-right{
+            @extend .col-12, .col-md-6,  .flex-justify-center, .flex-items-center;
+            width: 100% inherit !important;
+            @media screen and (min-width: #{$lg} ){height: 90vh !important;}
+        }
+
+        &-left{
+            @extend .flex-col;
+            padding: 20px;
+            margin: 0 !important;
+            text-align: center !important;
+            
+            h1{
+                color: $primary;
+                font-size: 24px !important;
+                @media screen and (min-width: #{$lg} ){ font-size: 2em !important; }
+            }
+        
+            p{
+                color: $black3 !important;
+                font-size: 14px !important;
+                @media screen and (min-width: #{$lg} ){ font-size: 1.5em !important; }
+            }
+
+            & > .btn-group{
+                @extend .flex-col, .flex-justify-center;
+                width: 100%;
+                margin: 20px auto !important;
+                @media screen and (min-width: #{$md} ){ flex-direction: row !important; }
+
+                & > * {
+                    width: 100% !important;
+                    align-self: center !important;
+                    @media screen and (min-width: #{$md} ){ width: initial !important; }
+                }
+            }
+
+        }
+
+        &-right{
+            margin: 0 !important;
+            img{
+                width: 100%;
+            }
+        }
+
+
+    }
+
+
+
+    &-footer{
+        min-height: 40px;
+    }
+
+
+ 
+}
+
+.ui-page-center{
+    @extend .ui-center;
+    width: 100% !important;
+    flex-direction: column;
+    background: $light;
+}
+
+
+
+.ui-page-section {
+    //border: solid 1px red;
+    @extend .row, .flex-col, .flex-items-center, .flex-justify-center; ;
+    min-height: 200px;
+    margin: 0 !important;
+    padding: 80px 0px !important;
+    text-align: center !important;
+
+    &-especial {
+        @extend .ui-page-section;
+        min-height: 200px;
+        width: 100%;
+        text-align: center !important;
+    }
+
+    h2{
+        color: $primary !important;
+    }
+
+    h3 {
+        text-align: left !important;
+        color: $black2 !important;
+    }
+
+
+    p{
+        color: $black3 !important;
+    }
+
+    div.ui-code:nth-child(1){
+        margin-top: 100px !important;
+        border:  solid 1px red !important;
+    }
+
+}

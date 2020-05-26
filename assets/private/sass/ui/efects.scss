@@ -1,0 +1,93 @@
+$default_duration: 1s;
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+      @content;
+    }
+    @-moz-keyframes #{$animationName} {
+      @content;
+    }
+    @-o-keyframes #{$animationName} {
+      @content;
+    }
+    @keyframes #{$animationName} {
+      @content;
+    }
+}
+
+
+@mixin setAnimation($str, $delay: '.3s') {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -o-animation: #{$str};
+    animation: #{$str};
+    -webkit-animation-delay: $delay;
+    -moz-animation-delay: $delay;
+    -o-animation-delay: $delay;
+    animation-delay: $delay;
+}
+
+
+
+
+@mixin boderRotateEfect($name, $color , $pxs: 1px, $repeat: infinite, $duration: $default_duration ){
+
+  $pxs: 1px;
+  @include keyframes(boderRotateEfect-#{$name}){
+
+    0%{
+         border-top: solid #{$pxs} #{$color} ;
+    }
+
+    12.5%{
+        border-top: solid #{$pxs} #{$color} ;
+        border-left: solid  #{$pxs} #{$color} ;
+    }
+
+    25%{
+        border-top: solid #{$pxs} #{$color} ;
+        border-left: solid  #{$pxs} #{$color} ;
+        border-bottom: solid  #{$pxs} #{$color} ;
+    }
+
+    37.5%{
+        border-left: solid  #{$pxs} #{$color} ;
+        border-bottom: solid  #{$pxs} #{$color} ;
+        border-right: solid  #{$pxs} #{$color} ;
+        border: solid  #{$pxs} #{$color} ;
+    }
+     
+  }   
+
+  @include setAnimation('boderRotateEfect-#{$name} #{$duration} cubic-bezier(0.6, -0.28, 0.735, 0.045) #{$repeat} ');
+} 
+
+
+
+@mixin scrollbar( $tumb1, $tumb2, $trak, $width:5px ) {
+
+  &::-webkit-scrollbar {
+    width: $width ;
+    max-height: 10px !important;
+  }
+
+  &::-webkit-scrollbar-track {
+      background: $trak !important;
+      border-radius: 0px !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background:$tumb1 !important;
+      border-radius: 5px !important;
+      transition-delay: .3s;
+      transition: all ease-in-out .8s !important;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+      transition-delay: .3s !important;
+      transition: all ease-in-out .8s !important;
+      background:$tumb2 !important;
+      cursor: pointer !important;
+    }
+
+}

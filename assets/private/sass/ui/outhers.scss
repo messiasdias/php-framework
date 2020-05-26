@@ -103,3 +103,92 @@
     max-width: 80%;
     margin: 10px auto !important;
 }
+
+
+.ui-lead-1, .ui-lead-2{
+    text-decoration: none;
+    font-weight: lighter !important;
+    text-align: center !important;
+}
+
+.ui-lead-1 {
+    font-size: 2em !important;
+    color: $primary !important;
+
+    @media screen and (min-width: $md) {
+        font-size: 3em !important;
+    }
+}
+
+.ui-lead-2 {
+    font-size: 1em !important;
+    color: $secondary !important;
+    background: $primary;
+    padding: 10px;
+
+    @media screen and (min-width: $md) {
+        font-size: 2em !important;
+    }
+}
+
+.ui-code{
+    //border: solid 1px red;
+    @extend  .flex-col, .col-12, .col-md-6, .offset-md-3;
+    margin: 10px auto !important;
+
+    h3{
+        color: $black2 !important;
+    }
+
+    div.code {
+        @extend .flex-row, .flex-items-center, .flex-justify-bet ;
+        background: rgba($light, .2) ;
+        margin: 10px auto !important;
+        padding: 0 0 !important;
+        overflow: hidden !important;
+
+        @media screen and (min-width: #{$lg}) {
+            border-radius: 50px;
+        }
+
+    
+        p{ 
+            font-weight: normal !important;
+            color: $black3  !important;
+            margin:  0 !important;
+            padding: 10px 20px !important;
+            font-family: Arial, Helvetica, sans-serif !important;
+            font-size: 14px !important;
+            text-align: center !important;
+
+            &::before{
+                content: "$";
+                margin-right: 10px;
+            }
+        }
+
+        a{ 
+            @extend .flex-row, .flex-items-center, .flex-justify-bet;
+            min-height: 100%;
+            padding: 10px !important;
+            margin:  0 !important;
+            background: $light !important;
+            color: $black3 !important;
+            border-radius: 0px 50px 50px 0px;
+            cursor: pointer;
+            display: none;
+
+            @media screen and (min-width: #{$lg}) { display: inherit;}
+
+            &:hover{
+                background: $primary !important;
+                color: $white !important;
+                text-decoration: none !important;
+            }
+
+        }
+
+    }
+
+
+}

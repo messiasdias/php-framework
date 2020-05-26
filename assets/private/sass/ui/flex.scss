@@ -1,0 +1,44 @@
+$flex_justify_and_align:
+"flex-start" "start",
+"flex-end" "end",
+"center" "center",
+"space-around" "aro",
+"space-between" "bet",
+"baseline" "base",
+"initial" "init";
+
+$flex_directions:
+"row" "row",
+"row-reverse" "rowr",
+"column" "col",
+"column-reverse" "colr",
+"initial" "init";
+
+.flex{
+    display: flex;
+
+    @each $value, $name in $flex_directions {
+        &-#{$name}{
+            @extend .flex;
+            flex-direction: #{$value};
+        }
+    }
+
+    @each $value, $name in $flex_justify_and_align {
+        &-justify-#{$name}{
+            @extend .flex;
+            justify-content: #{$value};
+        }
+    }
+
+
+    @each $value, $name in $flex_justify_and_align {
+        &-items-#{$name}{
+            @extend .flex;
+            align-items: #{$value};
+        }
+    }
+
+}
+
+

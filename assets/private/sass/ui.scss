@@ -1,88 +1,8 @@
 @import "./bootstrap-custom/bootstrap.scss";
+@import "./ui/efects.scss";
+@import "./ui/flex.scss";
 @import "./ui/html.scss";
-
-
-
-.ui-dashboard {
-    box-sizing: border-box !important;
-    position: relative !important;
-    @extend  .row;
-    width: 100vw !important;
-    padding: 0 !important;
-    margin: 0 !important;
-
-    &-left, &-right{
-        box-sizing: border-box !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        min-height: 100vh !important;
-        box-shadow: none !important;
-    }
-
-
-    &-left {
-        position: absolute;
-        display: flex;
-        top: 0;
-        left: 0px;
-        width: $sidebarWidth;
-        z-index: 11 !important;
-        display: none;
-
-        @media screen and (min-height: 1200px ) {
-            z-index: 11 !important;
-        }
-
-        @media screen and (min-width: $lg ) {
-            position: relative !important ;
-            width:  25%  !important;
-        }
-
-    }
-
-    &-right{
-        position: relative !important;
-        width: 100% ;
-    }
-    
-
-}
-
-
-
-.ui-main{
-
-    height: calc(100vh - 103px) !important;
-    width: 100% !important;
-    background: $light;
-    overflow-y: scroll !important;
-    @include scrollbar( $primary, $primary, $black2, 5px );
-    padding: 0px 10px;
-    padding-top: 10px;
-    padding-bottom: 100px !important;
-    box-sizing: border-box !important;
-    box-shadow: none !important;
-
-    .container{
-        @extend .ui-center;
-        padding: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        box-shadow: none !important;
-  
-        .row{
-            width: 100% !important;
-            height: 100% !important;
-            @extend .ui-center;
-            align-self: center !important;
-            box-shadow: none !important;
-        }
-    }
-
-}
-
-
-
+@import "./ui/dashboard.scss";
 @import "./ui/outhers.scss";
 @import "./ui/box.scss";
 @import "./ui/btn.scss";
@@ -90,4 +10,6 @@
 @import "./ui/form.scss";
 @import "./ui/navbar.scss";
 @import "./ui/sidebar.scss";
+@import "./ui/page.scss";
 @import "./ui/dark.scss";
+

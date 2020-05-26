@@ -28,7 +28,9 @@ a , p{
 b, small, strong, .destak{
     color: $primary !important;
     font-weight: normal;
-    &:hover{
-        text-decoration: underline !important;
-    }
+}
+
+
+.destak:hover, a:hover{
+    text-decoration: underline !important;
 }

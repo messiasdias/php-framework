@@ -22,6 +22,7 @@ $error: #F85D5D;
 $info: #4799eb;
 $warning: #9e7700;
 $primary: #4638c2;
+$secondary: $info;
 
 
 
@@ -59,27 +60,3 @@ $lg: 1024px;
 //Components
 $sidebarWidth: 300px;
 
-
-@mixin scrollbar( $tumb1, $tumb2, $trak, $width:5px ) {
-
-    &::-webkit-scrollbar {
-      width: $width ;
-      max-height: 10px !important;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: $trak !important;
-      border-radius: 4px !important;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background:$tumb1 !important;
-      border-radius: 4px !important;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background:$tumb2 !important;
-      cursor: pointer !important;
-    }
-
-  }

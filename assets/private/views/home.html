@@ -1,25 +1,89 @@
-{% extends 'ui/template.html'  %}
+{% include 'ui/header.html'  %}
 
-{% block main %}
+<div class="ui-page-container">
 
-<div id="home" class="col-12 page">
+<div class="ui-page">
 
-    <div class="logo-content " >
-        <h1>{{description}}</h1>
+    <div class="ui-page-header" >
+
+            <ul class="menu">
+                <li class="active"> <a href="/" >Twig</a> </li>
+                <li> <a href="/2" >Vue.Js</a> </li>
+                <li> <a "#" target="_blank" rel="noreferrer" >UI</a> </li>
+            </ul> 
+
     </div>
 
-    <p>Welcome with Twig Template Engine</p>
 
-    <ul class="menu">
-        <li> <a href="/" >Home Twig</a> </li>
-        <li> <a href="/2" >Home VueJs</a> </li>
-        <li> <a href="https://github.com/messiasdias/php-framework/tree/master/docs" target="_blank" rel="noreferrer" >Docs</a> </li>
-    </ul> 
+            
+    <div class="ui-page-body"  >
+
+
+         <div class="row">
+
+            <div class="ui-page-body-left">
+                
+                <h1 >{{description}}</h1>
+                <p>Welcome with Twig Template Engine</p>
+
+
+                <div class="btn-group">
+                    <a class="ui-btn-primary" href="#getstarted">Get Started</a>
+                    <a class="ui-btn-primary2"  href="https://github.com/messiasdias/php-framework/tree/master/docs">Documentation</a>
+                </div>
+
+            </div>
+
+            <div class="ui-page-body-right">
+               <img  src="/assets/img/default/development2.svg" /> 
+            </div>
+
+         </div>  
+         
+
+
+         <div class="ui-page-section" id="getstarted">
+            
+            <h2>Get Started</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
+                Integer scelerisque, nisi in tristique rutrum, augue elit congue nulla, non gravida.
+            </p>    
+                
+            <br><br><br>
+            <div class="ui-code">    
+                <h3>Install with Composer</h3>
+
+                <div class="code" > 
+                    <p>composer create-project -s dev messiasdias/php-framework project_name </p>
+                    <a href="#" >Copy</a> 
+                </div>
+            </div>    
+
+            <div class="ui-code">
+                <h3>Via Git Clone</h3>
+
+                <div class="code" > 
+                    <p>git clone https://github.com/messiasdias/php-framework.git project_name</p>
+                    <a href="#" >Copy</a> 
+                </div>
+            </div>    
+  
+         </div>
+
+
+    </div>
+
+
+    <div class="ui-page-footer"  >
+    
+    </div>
 
 </div>
 
 
 
+</div>
 
-{% endblock %}
+{% include 'ui/footer.html'  %}
   
