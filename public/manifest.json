@@ -1,0 +1,15 @@
+{
+
+"permissions": [
+    "serial",
+    "storage",
+    "videoCapture",
+    "browser",
+    "clipboard",
+    "clipboardRead",
+    "clipboardWrite",
+    "geolocation"
+]
+
+}
+  

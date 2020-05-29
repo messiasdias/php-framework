@@ -1,2 +1,6 @@
 @import "./ui.scss";
 
+.ui-page-section > #contributors.row {
+    @extend .flex-row, .flex-items-center;
+    justify-content: center !important;
+}

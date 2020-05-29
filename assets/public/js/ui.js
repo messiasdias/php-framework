@@ -60,6 +60,27 @@ let setTheme = function(theme = 'default'){
 }
 
 
+let copyClipboard = function(element){
+    let textarea = document.createElement('textarea')
+    textarea.textContent =  element.html()
+    document.body.appendChild(textarea)
+    let selection = document.getSelection()
+    let range = document.createRange()
+    range.selectNode(textarea)
+    selection.removeAllRanges()
+    selection.addRange(range)
+    let copySucess = document.execCommand('copy')
+    selection.removeAllRanges()
+    document.body.removeChild(textarea)
+
+    if(copySucess)  { 
+        console.log('Copy Success: ', element.html())
+        element.attr('data-before', element.html() )
+    }
+}
+
+
+
 let jqueryReady  = function() {
 
     //Setting Theme Color
@@ -119,6 +140,13 @@ let jqueryReady  = function() {
             setTheme('dark')
         }
     })
+
+
+    $('.ui-code>.content').click(function(event){
+        event.preventDefault()
+        copyClipboard( $(event.target) )
+    })
+
 
 
 

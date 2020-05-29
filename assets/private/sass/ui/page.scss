@@ -12,18 +12,18 @@
 .ui-page {
     width: 100% ;
     position: relative !important;
-    margin: 20px auto !important;
     padding: 0 !important;
+    margin: 0;
     box-sizing: border-box !important;
     background-color: $white;
 
     @media screen and (min-width: #{$lg}){
          box-shadow: 1px 1px 5px $black2;
          width: calc(95%) !important;
+         margin: 20px auto !important;
     }
 
     .row{
-        //border:  solid 1px red !important;
         @extend .container-fluid;
         margin: 0 !important;
         padding: 10px !important;
@@ -144,7 +144,14 @@
 
 
     &-footer{
-        min-height: 40px;
+        @extend .flex-row, .flex-justify-center, .flex-items-center;
+        min-height: 60px;
+        margin-top: 200px;
+        p{
+            font-size: 12px;
+            text-align: center !important;
+        }
+
     }
 
 
@@ -161,9 +168,9 @@
 
 
 .ui-page-section {
-    //border: solid 1px red;
+  
     @extend .row, .flex-col, .flex-items-center, .flex-justify-center; ;
-    min-height: 200px;
+    min-height: 350px;
     margin: 0 !important;
     padding: 80px 0px !important;
     text-align: center !important;
@@ -189,9 +196,5 @@
         color: $black3 !important;
     }
 
-    div.ui-code:nth-child(1){
-        margin-top: 100px !important;
-        border:  solid 1px red !important;
-    }
 
 }
