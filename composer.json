@@ -15,7 +15,7 @@
 
 	"require": {
                 "php": ">=7.2.0",
-                "messiasdias/php-library": "dev-master"
+                "messiasdias/php-library": "v1.0.0-beta"
         },
         
         "scripts": {
